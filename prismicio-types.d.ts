@@ -119,6 +119,95 @@ type PageDocumentDataSlicesSlice =
  */
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
+/** Content for Productions documents */
+interface ProductionsDocumentData {
+  /**
+   * Title field in *Productions*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: productions.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  title: prismic.RichTextField;
+  /**
+   * Year field in *Productions*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: productions.year
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  year: prismic.RichTextField;
+  /**
+   * Type field in *Productions*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: productions.type
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  type: prismic.RichTextField;
+  /**
+   * Director field in *Productions*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: productions.director
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  director: prismic.RichTextField;
+  /**
+   * Producer field in *Productions*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: productions.producer
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  producer: prismic.RichTextField;
+  /**
+   * Slice Zone field in *Productions*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: productions.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+   *
+   */
+  slices: prismic.SliceZone<ProductionsDocumentDataSlicesSlice>;
+}
+/**
+ * Slice for *Productions → Slice Zone*
+ *
+ */
+type ProductionsDocumentDataSlicesSlice = ImageSlice;
+/**
+ * Productions document from Prismic
+ *
+ * - **API ID**: `productions`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ProductionsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ProductionsDocumentData>,
+    "productions",
+    Lang
+  >;
 /** Content for Settings documents */
 interface SettingsDocumentData {
   /**
@@ -162,6 +251,7 @@ export type SettingsDocument<Lang extends string = string> =
 export type AllDocumentTypes =
   | NavigationDocument
   | PageDocument
+  | ProductionsDocument
   | SettingsDocument;
 /**
  * Primary content in Call2Action → Primary
@@ -733,6 +823,9 @@ declare module "@prismicio/client" {
       PageDocumentData,
       PageDocumentDataSlicesSlice,
       PageDocument,
+      ProductionsDocumentData,
+      ProductionsDocumentDataSlicesSlice,
+      ProductionsDocument,
       SettingsDocumentData,
       SettingsDocument,
       AllDocumentTypes,
