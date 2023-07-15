@@ -5,3 +5,9 @@
 [data-collapsible="true"].bg-white + [data-collapsible="true"].bg-white {
   @apply pt-0 md:pt-0;
 }
+
+h1, h2, h3, h4, h5, h6, p, pre, a, span {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 400;
+  letter-spacing: 1.12px;
+}

@@ -35,11 +35,11 @@ const richtext = {
           />
         </PrismicNextLink>
         <nav>
-          <ul className="flex flex-wrap gap-6 md:gap-10">
+          <ul className="flex flex-wrap gap-2 md:gap-4">
             {navigation.data?.links.map((item, index) => (
               <li
                 key={prismic.asText(item.label)}
-                className={`font-light tracking-tight ${
+                className={`font-light tracking-tight text-[15px] ${
                   slug?.toLowerCase() ==
                   prismic.asText(item.label).toLowerCase()
                     ? "text-slate-800"
