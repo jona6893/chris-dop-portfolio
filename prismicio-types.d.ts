@@ -124,58 +124,58 @@ interface ProductionsDocumentData {
   /**
    * Title field in *Productions*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Title
    * - **Placeholder**: *None*
    * - **API ID Path**: productions.title
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
    *
    */
-  title: prismic.RichTextField;
+  title: prismic.TitleField;
   /**
    * Year field in *Productions*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Title
    * - **Placeholder**: *None*
    * - **API ID Path**: productions.year
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
    *
    */
-  year: prismic.RichTextField;
+  year: prismic.TitleField;
   /**
    * Type field in *Productions*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Title
    * - **Placeholder**: *None*
    * - **API ID Path**: productions.type
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
    *
    */
-  type: prismic.RichTextField;
+  type: prismic.TitleField;
   /**
    * Director field in *Productions*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Title
    * - **Placeholder**: *None*
    * - **API ID Path**: productions.director
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
    *
    */
-  director: prismic.RichTextField;
+  director: prismic.TitleField;
   /**
    * Producer field in *Productions*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Title
    * - **Placeholder**: *None*
    * - **API ID Path**: productions.producer
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
    *
    */
-  producer: prismic.RichTextField;
+  producer: prismic.TitleField;
   /**
    * Slice Zone field in *Productions*
    *

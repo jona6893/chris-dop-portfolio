@@ -43,7 +43,7 @@ const richtext = {
                   slug?.toLowerCase() ==
                   prismic.asText(item.label).toLowerCase()
                     ? "text-slate-800"
-                    : "text-gray-300"
+                    : "text-gray-400"
                 }`}
               >
                 <PrismicNextLink field={item.link}>
