@@ -132,6 +132,17 @@ interface SettingsDocumentData {
    *
    */
   siteTitle: prismic.TitleField;
+  /**
+   * Subtitel field in *Settings*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.subtitel
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  subtitel: prismic.RichTextField;
 }
 /**
  * Settings document from Prismic
