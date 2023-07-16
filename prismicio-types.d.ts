@@ -107,7 +107,8 @@ type PageDocumentDataSlicesSlice =
   | ImageSlice
   | ImageCardsSlice
   | TextWithImageSlice
-  | Call2ActionSlice;
+  | Call2ActionSlice
+  | ProjectGridSlice;
 /**
  * Page document from Prismic
  *
@@ -567,6 +568,100 @@ export type ImageCardsSlice = prismic.SharedSlice<
   ImageCardsSliceVariation
 >;
 /**
+ * Item in ProjectGrid → Items
+ *
+ */
+export interface ProjectGridSliceDefaultItem {
+  /**
+   * Title field in *ProjectGrid → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_grid.items[].title
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  title: prismic.RichTextField;
+  /**
+   * Link field in *ProjectGrid → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: Link to project Page
+   * - **API ID Path**: project_grid.items[].link
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  link: prismic.LinkField;
+  /**
+   * image field in *ProjectGrid → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_grid.items[].image
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image: prismic.ImageField<never>;
+  /**
+   * Overlay Color field in *ProjectGrid → Items*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_grid.items[].overlay_color
+   * - **Documentation**: https://prismic.io/docs/core-concepts/select
+   *
+   */
+  overlay_color: prismic.SelectField<
+    | "Red"
+    | "Orange"
+    | "Amber"
+    | "Yellow"
+    | "Lime"
+    | "Green"
+    | "Emerald"
+    | "Teal"
+    | "Cyan"
+    | "Sky"
+    | "Blue"
+    | "Indigo"
+    | "Violet"
+    | "Purple"
+    | "Fuchsia"
+    | "Pink"
+    | "Rose"
+  >;
+}
+/**
+ * Default variation for ProjectGrid Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ProjectGridSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<ProjectGridSliceDefaultItem>
+>;
+/**
+ * Slice variation for *ProjectGrid*
+ *
+ */
+type ProjectGridSliceVariation = ProjectGridSliceDefault;
+/**
+ * ProjectGrid Shared Slice
+ *
+ * - **API ID**: `project_grid`
+ * - **Description**: `ProjectGrid`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ProjectGridSlice = prismic.SharedSlice<
+  "project_grid",
+  ProjectGridSliceVariation
+>;
+/**
  * Primary content in Quote → Primary
  *
  */
@@ -848,6 +943,10 @@ declare module "@prismicio/client" {
       ImageCardsSliceDefault,
       ImageCardsSliceVariation,
       ImageCardsSlice,
+      ProjectGridSliceDefaultItem,
+      ProjectGridSliceDefault,
+      ProjectGridSliceVariation,
+      ProjectGridSlice,
       QuoteSliceDefaultPrimary,
       QuoteSliceDefault,
       QuoteSliceVariation,

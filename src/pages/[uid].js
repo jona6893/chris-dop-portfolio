@@ -1,12 +1,13 @@
 import Head from "next/head";
 import * as prismic from "@prismicio/client";
 import { SliceZone } from "@prismicio/react";
-
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import { Layout } from "@/components/Layout";
 
 const Page = ({ page, navigation, settings }) => {
+   const [parent] = useAutoAnimate({ easing: "ease-in-out" });
   return (
     <Layout navigation={navigation} settings={settings}>
       <Head>
@@ -15,7 +16,9 @@ const Page = ({ page, navigation, settings }) => {
           {prismic.asText(settings.data.siteTitle)}
         </title>
       </Head>
-      <SliceZone slices={page.data.slices} components={components} />
+      <div ref={parent}>
+        <SliceZone slices={page.data.slices} components={components} />
+      </div>
     </Layout>
   );
 };

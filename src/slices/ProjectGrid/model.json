@@ -1,0 +1,67 @@
+{
+  "id": "project_grid",
+  "type": "SharedSlice",
+  "name": "ProjectGrid",
+  "description": "ProjectGrid",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "link": {
+          "type": "Link",
+          "config": {
+            "label": "Link",
+            "placeholder": "Link to project Page",
+            "allowTargetBlank": false,
+            "select": null
+          }
+        },
+        "image": {
+          "type": "Image",
+          "config": { "label": "image", "constraint": {}, "thumbnails": [] }
+        },
+        "overlay_color": {
+          "type": "Select",
+          "config": {
+            "label": "Overlay Color",
+            "placeholder": "",
+            "options": [
+              "Red",
+              "Orange",
+              "Amber",
+              "Yellow",
+              "Lime",
+              "Green",
+              "Emerald",
+              "Teal",
+              "Cyan",
+              "Sky",
+              "Blue",
+              "Indigo",
+              "Violet",
+              "Purple",
+              "Fuchsia",
+              "Pink",
+              "Rose"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

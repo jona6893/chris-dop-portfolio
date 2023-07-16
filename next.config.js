@@ -4,6 +4,7 @@ const sm = require("./slicemachine.config.json");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = async () => {
+  
   const client = prismic.createClient(sm.repositoryName);
 
   const repository = await client.getRepository();
@@ -18,6 +19,14 @@ const nextConfig = async () => {
       // This is the default locale you want to be used when visiting
       // a non-locale prefixed path e.g. `/hello`
       defaultLocale: locales[0],
+    },
+    images: {
+      remotePatterns: [
+        {
+          protocol: "https",
+          hostname: "**",
+        },
+      ],
     },
   };
 };
