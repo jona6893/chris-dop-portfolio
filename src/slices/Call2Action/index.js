@@ -46,7 +46,7 @@ const Call2Action = ({ slice }) => {
         <PrismicNextImage
           field={slice.primary.background}
           fill={false}
-          className="col-start-1 row-start-1 max-h-[500px] object-cover "
+          className="col-start-1 row-start-1 max-h-[500px] object-cover mx-auto"
         />
       </div>
     </section>
