@@ -77,8 +77,8 @@ slice.items.forEach((e) =>{
           >
             <div
               className={`grid items-center justify-items-center duration-300 ${
-                overlayColorToClass[item.hover_color]
-              } opacity-0 hover:opacity-100 col-start-1 row-start-1 w-full h-full inset-0 `}
+                item.hover_color ? overlayColorToClass[item.hover_color] : ""
+              } opacity-0 hover:opacity-100 col-start-1 row-start-1 w-full h-full inset-0 z-[1]`}
             >
               <PrismicRichText field={item.title} components={components} />
             </div>
@@ -97,7 +97,6 @@ slice.items.forEach((e) =>{
               disableScroll={true}
               closeOnClickOutside={true}
               onClose={closeImageViewer}
-              
               backgroundStyle={{
                 backgroundColor: "rgba(0,0,0,0.3)",
               }}
