@@ -84,7 +84,7 @@ slice.items.forEach((e) =>{
             </div>
             <PrismicNextImage
               field={item.image}
-              width={"100%"}
+              /* width={"100%"} */
               className="absolute inset-0 w-full h-full object-cover"
             />
           </div>
