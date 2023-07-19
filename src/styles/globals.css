@@ -1,8 +1,6 @@
-@import "tailwindcss/base";
-
-@import "tailwindcss/components";
-
-@import "tailwindcss/utilities";
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
 
 [data-collapsible="true"].bg-white + [data-collapsible="true"].bg-white {
   @apply pt-0 md:pt-0;

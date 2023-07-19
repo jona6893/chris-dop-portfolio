@@ -1,40 +1,21 @@
 import * as prismic from "@prismicio/client";
 import { PrismicText } from "@prismicio/react";
 import { PrismicNextLink } from "@prismicio/next";
-import { useRouter } from "next/router";
-import { Bounded } from "./Bounded";
 import { useState } from "react";
 import { PrismicRichText } from "./PrismicRichText";
 import { motion, AnimatePresence } from "framer-motion";
 
-export function HeaderMobile({ navigation, settings }) {
-  const [toggleMenu, setToggleMenu] = useState(false)
-  const router = useRouter();
-  const slug = router.query.uid;
-  
-  console.log(router.asPath);
-  console.log(navigation);
-  
+export function HeaderMobile({ navigation, settings, bgColor, textColor, slug, path }) {
+  const [toggleMenu, setToggleMenu] = useState(false);
 
-  let colors = {};
-  if (router.asPath === "/") {
-    colors = {
-      text: "white",
-      bg: "black",
-    };
-  } else {
-    colors = {
-      text: "black",
-      bg: "white"
-    };
-  }
-  console.log(colors)
+
+
   const richtext = {
     a: ({ children }) => <h1 className="text-5xl">{children}</h1>,
     paragraph: ({ children }) => (
       <p
-        className={`duration-100 text-${
-          toggleMenu === true ? colors.bg : colors.text
+        className={`duration-100 ${
+          toggleMenu === true ? `text-${textColor}` : `text-${bgColor}`
         } font-light text-body`}
       >
         {children}
@@ -45,7 +26,7 @@ export function HeaderMobile({ navigation, settings }) {
   return (
     <header
       className={`${
-        router.asPath === "/" ? "absolute" : "relative"
+        path === "/" ? "absolute" : "relative"
       } z-[10] w-full grid justify-center`}
     >
       <div className="top-0 py-6 px-4 w-screen flex justify-items-center mx-auto justify-between gap-x-6 gap-y-3 leading-none">
@@ -53,15 +34,15 @@ export function HeaderMobile({ navigation, settings }) {
           <PrismicNextLink
             onClick={() => setToggleMenu(false)}
             href="/"
-            className={`text-size1 duration-100 text-${
-              toggleMenu === true ? colors.bg : colors.text
+            className={`text-size1 duration-100 ${
+              toggleMenu === true ? `text-${textColor}` : `text-${bgColor}`
             } font-normal font-infant tracking-wide gap-2 items-center`}
           >
             <PrismicText field={settings.data.siteTitle} />
-          <PrismicRichText
-            field={settings.data.subtitel}
-            components={richtext}
-          />
+            <PrismicRichText
+              field={settings.data.subtitel}
+              components={richtext}
+            />
           </PrismicNextLink>
         </div>
         <button
@@ -73,17 +54,17 @@ export function HeaderMobile({ navigation, settings }) {
           <div
             className={`duration-100 absolute top-[10px] ${
               toggleMenu === true ? "rotate-45 top-[17.5px]" : "rotate-0"
-            } w-full h-[1px]  bg-${
-              toggleMenu === true ? colors.bg : colors.text
+            } w-full h-[1px] ${
+              toggleMenu === true ? `bg-${textColor}` : `bg-${bgColor}`
             } absolute `}
           />
 
           <div
             className={`duration-100 absolute bottom-[10px] ${
               toggleMenu === true ? "rotate-[-45deg] top-[17.5px]" : "rotate-0"
-            } w-full h-[1px] bg-${
-              toggleMenu === true ? colors.bg : colors.text
-            }  `}
+            } w-full h-[1px] ${
+              toggleMenu === true ? `bg-${textColor}` : `bg-${bgColor}`
+            }`}
           />
         </button>
         <AnimatePresence>
@@ -96,7 +77,7 @@ export function HeaderMobile({ navigation, settings }) {
               }}
               transition={{ duration: 0.1 }}
               style={{ visibility: toggleMenu ? "visible" : "hidden" }}
-              className={`absolute grid justify-items-center items-center inset-0 w-screen h-screen bg-${colors.text}`}
+              className={`absolute grid justify-items-center items-center inset-0 w-screen h-screen bg-${bgColor}`}
             >
               <motion.ul
                 initial={{ opacity: 0, y: 200 }}
@@ -111,7 +92,7 @@ export function HeaderMobile({ navigation, settings }) {
                     {item.link.uid === "forside" ? null : (
                       <li
                         key={prismic.asText(item.label)}
-                        className={`font-normal duration-200 tracking-normal hover:text-${colors.bg} text-center flex flex-col items-center`}
+                        className={`font-normal duration-200 tracking-normal hover:text-${textColor} text-center flex flex-col items-center`}
                       >
                         <PrismicNextLink
                           onClick={() => setToggleMenu(!toggleMenu)}
@@ -119,11 +100,9 @@ export function HeaderMobile({ navigation, settings }) {
                           className={`${
                             slug?.toLowerCase() ==
                             prismic.asText(item.label).toLowerCase()
-                              ? `text-${colors.bg}`
-                              : `text-${colors.bg}`
-                          } ${
-                            router.asPath === item.link.url && "underline"
-                          } underline-offset-8 decoration-1 text-size4`}
+                              ? `text-${textColor}`
+                              : `text-${textColor}`
+                          } ${path === item.link.url && "underline"} underline-offset-8 decoration-1 text-size4`}
                         >
                           <PrismicText field={item.label} />
                         </PrismicNextLink>
