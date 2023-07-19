@@ -2,8 +2,14 @@
 @tailwind utilities;
 @tailwind components;
 
+
 [data-collapsible="true"].bg-white + [data-collapsible="true"].bg-white {
   @apply pt-0 md:pt-0;
+}
+@layer utilities {
+  .bg-black {
+    @apply bg-black;
+  }
 }
 
 p, a{
@@ -15,4 +21,18 @@ background-image: repeating-linear-gradient(-11deg, #333333, #333333 10px, trans
 background-size: 2px 100%, 100% 2px, 2px 100% , 100% 2px;
 background-position: 0 0, 0 0, 100% 0, 0 100%;
 background-repeat: no-repeat;
+}
+
+.bgblack{
+  background-color: black;
+  
+}
+.bgwhite{
+  background-color: white;
+}
+.textblack{
+  color: black;
+}
+.textwhite{
+  color: white;
 }

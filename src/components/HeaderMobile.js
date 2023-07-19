@@ -5,7 +5,7 @@ import { useState } from "react";
 import { PrismicRichText } from "./PrismicRichText";
 import { motion, AnimatePresence } from "framer-motion";
 
-export function HeaderMobile({ navigation, settings, bgColor, textColor, slug, path }) {
+export function HeaderMobile({ navigation, settings, bgwhite, bgblack, textwhite, textblack, slug, path }) {
   const [toggleMenu, setToggleMenu] = useState(false);
 
 
@@ -15,7 +15,7 @@ export function HeaderMobile({ navigation, settings, bgColor, textColor, slug, p
     paragraph: ({ children }) => (
       <p
         className={`duration-100 ${
-          toggleMenu === true ? `text-${textColor}` : `text-${bgColor}`
+          toggleMenu === true ? `text-${textblack}` : `text-${textwhite}`
         } font-light text-body`}
       >
         {children}
@@ -35,7 +35,7 @@ export function HeaderMobile({ navigation, settings, bgColor, textColor, slug, p
             onClick={() => setToggleMenu(false)}
             href="/"
             className={`text-size1 duration-100 ${
-              toggleMenu === true ? `text-${textColor}` : `text-${bgColor}`
+              toggleMenu === true ? `${textblack}` : `${textwhite}`
             } font-normal font-infant tracking-wide gap-2 items-center`}
           >
             <PrismicText field={settings.data.siteTitle} />
@@ -55,7 +55,7 @@ export function HeaderMobile({ navigation, settings, bgColor, textColor, slug, p
             className={`duration-100 absolute top-[10px] ${
               toggleMenu === true ? "rotate-45 top-[17.5px]" : "rotate-0"
             } w-full h-[1px] ${
-              toggleMenu === true ? `bg-${textColor}` : `bg-${bgColor}`
+              toggleMenu === true ? `${bgblack}` : `${bgwhite}`
             } absolute `}
           />
 
@@ -63,7 +63,7 @@ export function HeaderMobile({ navigation, settings, bgColor, textColor, slug, p
             className={`duration-100 absolute bottom-[10px] ${
               toggleMenu === true ? "rotate-[-45deg] top-[17.5px]" : "rotate-0"
             } w-full h-[1px] ${
-              toggleMenu === true ? `bg-${textColor}` : `bg-${bgColor}`
+              toggleMenu === true ? `${bgblack}` : `${bgwhite}`
             }`}
           />
         </button>
@@ -77,7 +77,7 @@ export function HeaderMobile({ navigation, settings, bgColor, textColor, slug, p
               }}
               transition={{ duration: 0.1 }}
               style={{ visibility: toggleMenu ? "visible" : "hidden" }}
-              className={`absolute grid justify-items-center items-center inset-0 w-screen h-screen bg-${bgColor}`}
+              className={`absolute grid justify-items-center items-center inset-0 w-screen h-screen ${bgwhite}`}
             >
               <motion.ul
                 initial={{ opacity: 0, y: 200 }}
@@ -92,7 +92,7 @@ export function HeaderMobile({ navigation, settings, bgColor, textColor, slug, p
                     {item.link.uid === "forside" ? null : (
                       <li
                         key={prismic.asText(item.label)}
-                        className={`font-normal duration-200 tracking-normal hover:text-${textColor} text-center flex flex-col items-center`}
+                        className={`font-normal duration-200 tracking-normal text-center flex flex-col items-center`}
                       >
                         <PrismicNextLink
                           onClick={() => setToggleMenu(!toggleMenu)}
@@ -100,9 +100,11 @@ export function HeaderMobile({ navigation, settings, bgColor, textColor, slug, p
                           className={`${
                             slug?.toLowerCase() ==
                             prismic.asText(item.label).toLowerCase()
-                              ? `text-${textColor}`
-                              : `text-${textColor}`
-                          } ${path === item.link.url && "underline"} underline-offset-8 decoration-1 text-size4`}
+                              ? `${textblack}`
+                              : `${textblack}`
+                          } ${
+                            path === item.link.url && "underline"
+                          } underline-offset-8 decoration-1 text-size4`}
                         >
                           <PrismicText field={item.label} />
                         </PrismicNextLink>
