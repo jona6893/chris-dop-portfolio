@@ -16,7 +16,7 @@ const Page = ({ page, navigation, settings }) => {
           {prismic.asText(settings.data.siteTitle)}
         </title>
       </Head>
-      <div ref={parent}>
+      <div ref={parent} className="py-8">
         <SliceZone slices={page.data.slices} components={components} />
       </div>
     </Layout>

@@ -18,7 +18,7 @@ const titleText = {
 };
 const kategori = {
   paragraph: ({ children }) => (
-    <p className="lg:absolute max-lg:text-center top-[-50%] right-[100%] lg:w-max break-normal lg:pr-2 max-lg:pb-2 text-size5 text-black col-start-1 row-start-1 z-[1] uppercase">
+    <p className="lg:absolute max-lg:text-center lg:text-right top-[-50%] right-[100%] lg:w-[13vw] break-normal lg:pr-2 max-lg:pb-2 text-size5 text-black col-start-1 row-start-1 z-[1] uppercase">
       {children}
     </p>
   ),

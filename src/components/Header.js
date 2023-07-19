@@ -8,21 +8,16 @@ import { PrismicRichText } from "./PrismicRichText";
 
 export function Header({ navigation, settings }) {
  const router = useRouter();
-/*  if(router.query.uid === undefined){
-   console.log("made it here")
-   router.query = {uid: "Narrative"}
- }
-  */
  const slug  = router.query.uid;
 
 let colors ={}
 console.log(router.asPath)
 if(router.asPath === "/"){
-  colors = {title:"white", subtitle:"gray-200",menuSel:"gray-300",menu:"gray-50"}
+  colors = {title:"white", subtitle:"white",menuSel:"gray-100",menu:"white"}
 } else {
   colors = {
     title: "black",
-    subtitle: "gray-700",
+    subtitle: "black",
     menuSel: "gray-600",
     menu: "gray-300",
   };
@@ -54,19 +49,20 @@ const richtext = {
                 {item.link.uid === "forside" ? null : (
                   <li
                     key={prismic.asText(item.label)}
-                    className={`font-semibold duration-200 tracking-normal text-size5 hover:text-${
-                      colors.menuSel
-                    } text-center flex items-center ${
-                      slug?.toLowerCase() ==
-                      prismic.asText(item.label).toLowerCase()
-                        ? `text-${colors.menuSel}`
-                        : `text-${colors.menu}`
-                    }`}
+                    className={`font-semibold duration-200 tracking-normal text-size5 hover:text-${colors.menuSel} text-center flex items-center`}
                   >
                     {index === 1 ? null : (
-                      <hr className="h-[35px] w-[1px] border-r border-gray-600 mx-2" />
+                      <hr className="h-[35px] w-[1px] border-r border-gray-400 mx-2" />
                     )}
-                    <PrismicNextLink field={item.link}>
+                    <PrismicNextLink
+                      field={item.link}
+                      className={`${
+                        slug?.toLowerCase() ==
+                        prismic.asText(item.label).toLowerCase()
+                          ? `text-${colors.menuSel}`
+                          : `text-${colors.menu}`
+                      }`}
+                    >
                       <PrismicText field={item.label} />
                     </PrismicNextLink>
                   </li>
