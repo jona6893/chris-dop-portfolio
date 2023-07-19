@@ -12,6 +12,11 @@ const components = {
       {children}
     </Heading>
   ),
+  paragraph: ({ children }) => (
+    <p className="mb-4 mt-12 first:mt-0 max-lg:px-4">
+      {children}
+    </p>
+  ),
 };
 
 const Hero = ({ slice }) => {
@@ -27,7 +32,7 @@ const Hero = ({ slice }) => {
           className="pointer-events-none select-none object-cover opacity-40"
         />
       )}
-      <div className="relative mb-16">
+      <div className="relative mb-[15vh]">
         <div className="flex flex-col flex-col-reverse items-center justify-items-center gap-8">
           <div className="max-w-2xl text-center">
             <PrismicRichText

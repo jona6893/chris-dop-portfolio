@@ -1,0 +1,274 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"title",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "heading4",
+									"content": {
+										"text": "Passage"
+									}
+								}
+							]
+						}
+					],
+					[
+						"hover_color",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "Violet",
+							"type": "Select"
+						}
+					],
+					[
+						"image",
+						{
+							"origin": {
+								"id": "qkfxBc2NQ18",
+								"url": "https://images.unsplash.com/photo-1495616811223-4d98c6e9c869?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMXx8c3Vuc2V0fGVufDB8fHx8MTY4OTc4NjI0OXww&ixlib=rb-4.0.3&q=85",
+								"width": 6000,
+								"height": 3375
+							},
+							"url": "https://images.unsplash.com/photo-1495616811223-4d98c6e9c869?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMXx8c3Vuc2V0fGVufDB8fHx8MTY4OTc4NjI0OXww&ixlib=rb-4.0.3&q=85",
+							"width": 6000,
+							"height": 3375,
+							"edit": {
+								"background": "transparent",
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								}
+							},
+							"credits": null,
+							"alt": null,
+							"__TYPE__": "ImageContent",
+							"thumbnails": {}
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"title",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "heading4",
+									"content": {
+										"text": "Steep"
+									}
+								}
+							]
+						}
+					],
+					[
+						"image",
+						{
+							"url": "https://images.unsplash.com/photo-1599270606287-331b4f5d0e02?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyfHxzdW5zaGluZXxlbnwwfHx8fDE2ODk3ODcyMzR8MA&ixlib=rb-4.0.3&q=85",
+							"origin": {
+								"id": "PsLrgT55DeM",
+								"url": "https://images.unsplash.com/photo-1599270606287-331b4f5d0e02?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyfHxzdW5zaGluZXxlbnwwfHx8fDE2ODk3ODcyMzR8MA&ixlib=rb-4.0.3&q=85",
+								"width": 4480,
+								"height": 6720
+							},
+							"width": 4480,
+							"height": 6720,
+							"edit": {
+								"background": "transparent",
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								}
+							},
+							"credits": null,
+							"alt": null,
+							"__TYPE__": "ImageContent",
+							"thumbnails": {}
+						}
+					],
+					[
+						"hover_color",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "Sky",
+							"type": "Select"
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"image",
+						{
+							"url": "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyfHxmcnVpdHxlbnwwfHx8fDE2ODk3MjEyOTN8MA&ixlib=rb-4.0.3&q=85",
+							"origin": {
+								"id": "xnRg3xDcNnE",
+								"url": "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyfHxmcnVpdHxlbnwwfHx8fDE2ODk3MjEyOTN8MA&ixlib=rb-4.0.3&q=85",
+								"width": 7173,
+								"height": 10041
+							},
+							"width": 7173,
+							"height": 10041,
+							"edit": {
+								"background": "transparent",
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								}
+							},
+							"credits": null,
+							"alt": null,
+							"__TYPE__": "ImageContent",
+							"thumbnails": {}
+						}
+					],
+					[
+						"title",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "heading4",
+									"content": {
+										"text": "Equator"
+									}
+								}
+							]
+						}
+					],
+					[
+						"hover_color",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "Teal",
+							"type": "Select"
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"image",
+						{
+							"url": "https://images.unsplash.com/photo-1600423115367-87ea7661688f?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMXx8ZnJ1aXR8ZW58MHx8fHwxNjg5NzIxMjkzfDA&ixlib=rb-4.0.3&q=85",
+							"origin": {
+								"id": "t2ZIt-WNXrk",
+								"url": "https://images.unsplash.com/photo-1600423115367-87ea7661688f?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMXx8ZnJ1aXR8ZW58MHx8fHwxNjg5NzIxMjkzfDA&ixlib=rb-4.0.3&q=85",
+								"width": 3024,
+								"height": 4032
+							},
+							"width": 3024,
+							"height": 4032,
+							"edit": {
+								"background": "transparent",
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								}
+							},
+							"credits": null,
+							"alt": null,
+							"__TYPE__": "ImageContent",
+							"thumbnails": {}
+						}
+					],
+					[
+						"title",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "heading4",
+									"content": {
+										"text": "Nails"
+									}
+								}
+							]
+						}
+					],
+					[
+						"hover_color",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "Violet",
+							"type": "Select"
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"title",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "heading4",
+									"content": {
+										"text": "Printed"
+									}
+								}
+							]
+						}
+					],
+					[
+						"image",
+						{
+							"url": "https://images.unsplash.com/photo-1618897996318-5a901fa6ca71?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxNnx8ZnJ1aXR8ZW58MHx8fHwxNjg5NzIxMjkzfDA&ixlib=rb-4.0.3&q=85",
+							"origin": {
+								"id": "a9rxefN9vgY",
+								"url": "https://images.unsplash.com/photo-1618897996318-5a901fa6ca71?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxNnx8ZnJ1aXR8ZW58MHx8fHwxNjg5NzIxMjkzfDA&ixlib=rb-4.0.3&q=85",
+								"width": 4800,
+								"height": 6000
+							},
+							"width": 4800,
+							"height": 6000,
+							"edit": {
+								"background": "transparent",
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								}
+							},
+							"credits": null,
+							"alt": null,
+							"__TYPE__": "ImageContent",
+							"thumbnails": {}
+						}
+					],
+					[
+						"hover_color",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "Purple",
+							"type": "Select"
+						}
+					]
+				]
+			}
+		]
+	}
+]

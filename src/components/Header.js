@@ -49,10 +49,10 @@ const richtext = {
                 {item.link.uid === "forside" ? null : (
                   <li
                     key={prismic.asText(item.label)}
-                    className={`font-semibold duration-200 tracking-normal text-size5 hover:text-${colors.menuSel} text-center flex items-center`}
+                    className={`font-normal duration-200 tracking-normal uppercase text-size5 hover:text-${colors.menuSel} text-center flex items-center`}
                   >
-                    {index === 1 ? null : (
-                      <hr className="h-[35px] w-[1px] border-r border-gray-400 mx-2" />
+                    {index === 0 ? null : (
+                      <hr className={`h-[35px] w-[1px] border-r ${router.asPath === "/" ? "border-gray-400" :"border-gray-500"} mx-4`} />
                     )}
                     <PrismicNextLink
                       field={item.link}

@@ -108,7 +108,8 @@ type PageDocumentDataSlicesSlice =
   | ImageCardsSlice
   | TextWithImageSlice
   | Call2ActionSlice
-  | ProjectGridSlice;
+  | ProjectGridSlice
+  | PhotoGridSlice;
 /**
  * Page document from Prismic
  *
@@ -193,7 +194,7 @@ interface ProductionsDocumentData {
  * Slice for *Productions → Slice Zone*
  *
  */
-type ProductionsDocumentDataSlicesSlice = ImageSlice;
+type ProductionsDocumentDataSlicesSlice = ImageSlice | VideoSlice;
 /**
  * Productions document from Prismic
  *
@@ -568,6 +569,92 @@ export type ImageCardsSlice = prismic.SharedSlice<
   ImageCardsSliceVariation
 >;
 /**
+ * Item in PhotoGrid → Items
+ *
+ */
+export interface PhotoGridSliceDefaultItem {
+  /**
+   * Title field in *PhotoGrid → Items*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: photo_grid.items[].title
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  title: prismic.TitleField;
+  /**
+   * Hover Color field in *PhotoGrid → Items*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: photo_grid.items[].hover_color
+   * - **Documentation**: https://prismic.io/docs/core-concepts/select
+   *
+   */
+  hover_color: prismic.SelectField<
+    | "White"
+    | "Black"
+    | "Red"
+    | "Orange"
+    | "Amber"
+    | "Yellow"
+    | "Lime"
+    | "Green"
+    | "Emerald"
+    | "Teal"
+    | "Cyan"
+    | "Sky"
+    | "Blue"
+    | "Indigo"
+    | "Violet"
+    | "Purple"
+    | "Fuchsia"
+    | "Pink"
+    | "Rose"
+  >;
+  /**
+   * Image field in *PhotoGrid → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: photo_grid.items[].image
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image: prismic.ImageField<never>;
+}
+/**
+ * Default variation for PhotoGrid Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type PhotoGridSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<PhotoGridSliceDefaultItem>
+>;
+/**
+ * Slice variation for *PhotoGrid*
+ *
+ */
+type PhotoGridSliceVariation = PhotoGridSliceDefault;
+/**
+ * PhotoGrid Shared Slice
+ *
+ * - **API ID**: `photo_grid`
+ * - **Description**: `PhotoGrid`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type PhotoGridSlice = prismic.SharedSlice<
+  "photo_grid",
+  PhotoGridSliceVariation
+>;
+/**
  * Primary content in ProjectGrid → Primary
  *
  */
@@ -919,6 +1006,49 @@ export type TextWithImageSlice = prismic.SharedSlice<
   "text_with_image",
   TextWithImageSliceVariation
 >;
+/**
+ * Primary content in Video → Primary
+ *
+ */
+interface VideoSliceDefaultPrimary {
+  /**
+   * Video Url field in *Video → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: Link to Vemeo or youtube video
+   * - **API ID Path**: video.primary.video_url
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  video_url: prismic.LinkField;
+}
+/**
+ * Default variation for Video Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type VideoSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<VideoSliceDefaultPrimary>,
+  never
+>;
+/**
+ * Slice variation for *Video*
+ *
+ */
+type VideoSliceVariation = VideoSliceDefault;
+/**
+ * Video Shared Slice
+ *
+ * - **API ID**: `video`
+ * - **Description**: `Video`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type VideoSlice = prismic.SharedSlice<"video", VideoSliceVariation>;
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -959,6 +1089,10 @@ declare module "@prismicio/client" {
       ImageCardsSliceDefault,
       ImageCardsSliceVariation,
       ImageCardsSlice,
+      PhotoGridSliceDefaultItem,
+      PhotoGridSliceDefault,
+      PhotoGridSliceVariation,
+      PhotoGridSlice,
       ProjectGridSliceDefaultPrimary,
       ProjectGridSliceDefaultItem,
       ProjectGridSliceDefault,
@@ -980,6 +1114,10 @@ declare module "@prismicio/client" {
       TextWithImageSliceWithButton,
       TextWithImageSliceVariation,
       TextWithImageSlice,
+      VideoSliceDefaultPrimary,
+      VideoSliceDefault,
+      VideoSliceVariation,
+      VideoSlice,
     };
   }
 }
