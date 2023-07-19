@@ -6,8 +6,13 @@
   @apply pt-0 md:pt-0;
 }
 
-h1, h2, h3, h4, h5, h6, p, pre, a, span {
-  font-family: 'Josefin Sans', sans-serif;
-  font-weight: 400;
-  letter-spacing: 1.12px;
+p, a{
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+}
+
+.dashBorder {
+background-image: repeating-linear-gradient(-11deg, #333333, #333333 10px, transparent 10px, transparent 31px, #333333 31px), repeating-linear-gradient(79deg, #333333, #333333 10px, transparent 10px, transparent 31px, #333333 31px), repeating-linear-gradient(169deg, #333333, #333333 10px, transparent 10px, transparent 31px, #333333 31px), repeating-linear-gradient(259deg, #333333, #333333 10px, transparent 10px, transparent 31px, #333333 31px);
+background-size: 2px 100%, 100% 2px, 2px 100% , 100% 2px;
+background-position: 0 0, 0 0, 100% 0, 0 100%;
+background-repeat: no-repeat;
 }

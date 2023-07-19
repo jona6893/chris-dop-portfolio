@@ -11,7 +11,17 @@
       "version": "initial",
       "description": "Default",
       "imageUrl": "",
-      "primary": {},
+      "primary": {
+        "kategori": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Kategori",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        }
+      },
       "items": {
         "title": {
           "type": "StructuredText",

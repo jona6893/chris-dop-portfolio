@@ -2,7 +2,19 @@
 	{
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
-		"primary": {},
+		"primary": {
+			"kategori": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Dolor voluptate aute cillum officia duis et culpa sint ullamco esse do esse. In sint cupidatat do amet quis ullamco eiusmod ut duis eu labore aliqua. Ullamco est reprehenderit excepteur ad nostrud adipisicing quis labore quis deserunt fugiat reprehenderit id sit."
+						}
+					}
+				]
+			}
+		},
 		"items": [
 			{
 				"__TYPE__": "GroupItemContent",

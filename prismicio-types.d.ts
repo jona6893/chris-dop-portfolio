@@ -336,16 +336,6 @@ export type Call2ActionSlice = prismic.SharedSlice<
  */
 interface HeroSliceDefaultPrimary {
   /**
-   * Text field in *Hero → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.primary.text
-   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-   *
-   */
-  text: prismic.RichTextField;
-  /**
    * Button Link field in *Hero → Primary*
    *
    * - **Field Type**: Link
@@ -365,6 +355,16 @@ interface HeroSliceDefaultPrimary {
    *
    */
   buttonText: prismic.KeyTextField;
+  /**
+   * Text field in *Hero → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text: prismic.RichTextField;
   /**
    * Background Image field in *Hero → Primary*
    *
@@ -568,6 +568,22 @@ export type ImageCardsSlice = prismic.SharedSlice<
   ImageCardsSliceVariation
 >;
 /**
+ * Primary content in ProjectGrid → Primary
+ *
+ */
+interface ProjectGridSliceDefaultPrimary {
+  /**
+   * Kategori field in *ProjectGrid → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_grid.primary.kategori
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  kategori: prismic.RichTextField;
+}
+/**
  * Item in ProjectGrid → Items
  *
  */
@@ -641,7 +657,7 @@ export interface ProjectGridSliceDefaultItem {
  */
 export type ProjectGridSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<ProjectGridSliceDefaultPrimary>,
   Simplify<ProjectGridSliceDefaultItem>
 >;
 /**
@@ -943,6 +959,7 @@ declare module "@prismicio/client" {
       ImageCardsSliceDefault,
       ImageCardsSliceVariation,
       ImageCardsSlice,
+      ProjectGridSliceDefaultPrimary,
       ProjectGridSliceDefaultItem,
       ProjectGridSliceDefault,
       ProjectGridSliceVariation,

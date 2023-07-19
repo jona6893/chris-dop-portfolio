@@ -18,7 +18,7 @@ const Hero = ({ slice }) => {
   const backgroundImage = slice.primary.backgroundImage;
 
   return (
-    <section className="relative bg-slate-900 text-white">
+    <section className="relative bg-slate-900 text-white h-screen grid items-end ">
       {prismic.isFilled.image(backgroundImage) && (
         <PrismicNextImage
           field={backgroundImage}
@@ -27,24 +27,26 @@ const Hero = ({ slice }) => {
           className="pointer-events-none select-none object-cover opacity-40"
         />
       )}
-      <Bounded yPadding="lg" className="relative">
-        <div className="grid justify-items-center gap-8">
+      <div className="relative mb-16">
+        <div className="flex flex-col flex-col-reverse items-center justify-items-center gap-8">
           <div className="max-w-2xl text-center">
             <PrismicRichText
               field={slice.primary.text}
               components={components}
             />
           </div>
-          {prismic.isFilled.link(slice.primary.buttonLink) && (
-            <PrismicNextLink
-              field={slice.primary.buttonLink}
-              className="rounded bg-white px-5 py-3 font-medium text-slate-800"
-            >
-              {slice.primary.buttonText || "Learn More"}
-            </PrismicNextLink>
-          )}
+          <div className="">
+            {prismic.isFilled.link(slice.primary.buttonLink) && (
+              <PrismicNextLink
+                field={slice.primary.buttonLink}
+                className="rounded-lg bg-yellow-500 backdrop-blur-md duration-200 px-6 py-1 font-bold text-size5 border-2 border-yellow-500 font-zen text-white hover:text-yellow-500 hover:bg-white/20"
+              >
+                {slice.primary.buttonText || "IMDB"}
+              </PrismicNextLink>
+            )}
+          </div>
         </div>
-      </Bounded>
+      </div>
     </section>
   );
 };

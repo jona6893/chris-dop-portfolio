@@ -13,7 +13,14 @@ const ProjectGrid = ({ slice }) => {
 
 const titleText = {
   paragraph: ({ children }) => (
-    <p className="text-2xl text-white col-start-1 row-start-1 z-[1] uppercase">{children}</p>
+    <p className="text-size5 text-white col-start-1 row-start-1 z-[1] uppercase">{children}</p>
+  ),
+};
+const kategori = {
+  paragraph: ({ children }) => (
+    <p className="lg:absolute max-lg:text-center top-[-50%] right-[100%] lg:w-max break-normal lg:pr-2 max-lg:pb-2 text-size5 text-black col-start-1 row-start-1 z-[1] uppercase">
+      {children}
+    </p>
   ),
 };
 
@@ -43,35 +50,41 @@ const overlayColorToClass = {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="grid grid-cols-2 gap-4 p-4 justify-items-center items-center"
+      className="lg:px-[15vw] max-lg:px-[2vw]"
     >
-      {slice.items.map((item, index) => {
-        return (
-          <div
-            key={index * 2}
-            className="relative w-full pb-[46.2%] overflow-hidden m-auto"
-          >
-            <article className="grid absolute inset-0 justify-items-center items-center">
-              <Image
-                src={item.image.url}
-                alt="image"
-                layout="fill"
-                objectFit="cover"
-              />
-              <Link
-                href={`productions/` + item.link.uid}
-                className={`w-full h-full z-[1] grid justify-items-center items-center bg-gray-800/25 duration-300 ${
-                  item.overlay_color
-                    ? overlayColorToClass[item.overlay_color]
-                    : ""
-                }`}
-              >
-                <PrismicRichText field={item.title} components={titleText} />
-              </Link>
-            </article>
-          </div>
-        );
-      })}
+      <div className="relative max-lg:flex flex-col-reverse  w-full py-2">
+        <div className="bg-transparent w-full h-[1px] border-black border-dashed dashBorder" />
+        <PrismicRichText field={slice.primary.kategori} components={kategori} />
+      </div>
+      <div className="lg:grid max-lg:flex flex-col grid-cols-2 gap-4 justify-items-center items-center">
+        {slice.items.map((item, index) => {
+          return (
+            <div
+              key={index * 2}
+              className="relative w-full lg:pb-[25vh] max-lg:pb-[18vh] overflow-hidden m-auto"
+            >
+              <article className="grid absolute inset-0 justify-items-center items-center">
+                <Image
+                  src={item.image.url}
+                  alt="image"
+                  layout="fill"
+                  objectFit="cover"
+                />
+                <Link
+                  href={`productions/` + item.link.uid}
+                  className={`w-full h-full z-[1] grid justify-items-center items-center bg-gray-800/25 duration-300 ${
+                    item.overlay_color
+                      ? overlayColorToClass[item.overlay_color]
+                      : ""
+                  }`}
+                >
+                  <PrismicRichText field={item.title} components={titleText} />
+                </Link>
+              </article>
+            </div>
+          );
+        })}
+      </div>
     </section>
   );
 };

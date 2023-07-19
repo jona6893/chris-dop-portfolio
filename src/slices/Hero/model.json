@@ -11,15 +11,6 @@
       "version": "sktwi1xtmkfgx8626",
       "description": "Hero",
       "primary": {
-        "text": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Text",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph,heading1,strong,em"
-          }
-        },
         "buttonLink": {
           "type": "Link",
           "config": {
@@ -30,9 +21,15 @@
         },
         "buttonText": {
           "type": "Text",
+          "config": { "label": "Button Text", "placeholder": "" }
+        },
+        "text": {
+          "type": "StructuredText",
           "config": {
-            "label": "Button Text",
-            "placeholder": ""
+            "label": "Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
           }
         },
         "backgroundImage": {
