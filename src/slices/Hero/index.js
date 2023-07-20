@@ -44,7 +44,7 @@ const Hero = ({ slice }) => {
             {prismic.isFilled.link(slice.primary.buttonLink) && (
               <PrismicNextLink
                 field={slice.primary.buttonLink}
-                className="rounded-lg bg-yellow-500 backdrop-blur-md duration-200 px-6 py-1 font-bold text-size5 border-2 border-yellow-500 font-zen text-white hover:text-yellow-500 hover:bg-white/20"
+                className="rounded-lg backdrop-blur-md duration-200 px-6 py-1 font-bold text-size5 border-2 font-zen text-white hover:border-yellow-500 hover:text-yellow-500 hover:bg-white/20"
               >
                 {slice.primary.buttonText || "IMDB"}
               </PrismicNextLink>
