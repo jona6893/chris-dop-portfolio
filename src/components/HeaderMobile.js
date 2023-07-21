@@ -91,7 +91,7 @@ export function HeaderMobile({ navigation, settings, bgwhite, bgblack, textwhite
                   <>
                     {item.link.uid === "forside" ? null : (
                       <li
-                        key={prismic.asText(item.label)}
+                        key={index*18}
                         className={`font-normal duration-200 tracking-normal text-center flex flex-col items-center`}
                       >
                         <PrismicNextLink

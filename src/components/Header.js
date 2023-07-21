@@ -34,7 +34,7 @@ export function Header({ navigation, settings, bgwhite, bgblack, textwhite, text
               <>
                 {item.link.uid === "forside" ? null : (
                   <li
-                    key={prismic.asText(item.label)}
+                    key={index*17}
                     className={`font-normal duration-200 tracking-normal uppercase text-size5 text-center flex items-center`}
                   >
                     {index === 0 ? null : (
