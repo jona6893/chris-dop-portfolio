@@ -23,6 +23,13 @@
           "allowTargetBlank": true,
           "single": "paragraph"
         }
+      },
+      "meta_description": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "A Description fund when search for the website on google."
+        }
       }
     }
   }

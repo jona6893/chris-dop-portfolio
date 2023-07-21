@@ -8,6 +8,7 @@ import { Layout } from "@/components/Layout";
 
 const Index = ({ page, navigation, settings}) => {
 
+  console.log(settings.data);
 
   return (
     <Layout navigation={navigation} settings={settings}>

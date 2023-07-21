@@ -1,4 +1,4 @@
-import { PrismicNextLink } from "@prismicio/next";
+
 import dynamic from "next/dynamic";
 /**
  * @typedef {import("@prismicio/client").Content.VideoSlice} VideoSlice

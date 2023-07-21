@@ -1,5 +1,4 @@
 import { PrismicRichText } from "@/components/PrismicRichText";
-import { PrismicNextImage } from "@prismicio/next";
 import Image from "next/image";
 import Link from "next/link";
 

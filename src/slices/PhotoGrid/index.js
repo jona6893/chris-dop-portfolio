@@ -1,7 +1,7 @@
 import { PrismicRichText } from "@/components/PrismicRichText";
 import { PrismicNextImage } from "@prismicio/next";
 import ImageViewer from "react-simple-image-viewer";
-import { useCallback, useState } from "react";
+import { useState } from "react";
 
 /**
  * @typedef {import("@prismicio/client").Content.PhotoGridSlice} PhotoGridSlice

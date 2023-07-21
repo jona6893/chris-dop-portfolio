@@ -234,6 +234,17 @@ interface SettingsDocumentData {
    *
    */
   subtitel: prismic.RichTextField;
+  /**
+   * Meta Description field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A Description fund when search for the website on google.
+   * - **API ID Path**: settings.meta_description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  meta_description: prismic.KeyTextField;
 }
 /**
  * Settings document from Prismic

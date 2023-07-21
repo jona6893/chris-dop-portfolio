@@ -1,4 +1,3 @@
-import * as prismic from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
 
 import { Bounded } from "@/components/Bounded";

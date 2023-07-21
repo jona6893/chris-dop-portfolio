@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { Header } from "./Header";
 import { HeaderMobile } from "./HeaderMobile";
+import Head from "next/head";
 
 export function Layout({ navigation, settings, children }) {
   const router = useRouter()
@@ -33,8 +34,13 @@ export function Layout({ navigation, settings, children }) {
     };
   }
 
+
+
   return (
     <div className="text-slate-800">
+      <Head>
+        <meta name="description" content={settings.data.meta_description} />
+      </Head>
       <div className="max-md:hidden">
         <Header {...headerProps} />
       </div>
