@@ -29,7 +29,7 @@ export function HeaderMobile({ navigation, settings, bgwhite, bgblack, textwhite
         path === "/" ? "absolute" : "relative"
       } z-[10] w-full grid justify-center`}
     >
-      <div className="top-0 py-6 px-4 w-screen flex justify-items-center mx-auto justify-between gap-x-6 gap-y-3 leading-none">
+      <div className="top-0 py-6 px-4 w-screen flex justify-items-center items-center mx-auto justify-between gap-x-6 gap-y-3 leading-none">
         <div className={`z-10`}>
           <PrismicNextLink
             onClick={() => setToggleMenu(false)}
