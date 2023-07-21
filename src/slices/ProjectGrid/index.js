@@ -45,7 +45,7 @@ const overlayColorToClass = {
   // add other mappings as necessary
 };
 
-  console.log(slice);
+  
   return (
     <section
       data-slice-type={slice.slice_type}

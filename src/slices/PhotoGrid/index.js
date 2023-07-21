@@ -60,7 +60,7 @@ slice.items.forEach((e) =>{
  };
 
  
-  console.log(slice)
+  
 
   return (
     <section

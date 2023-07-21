@@ -10,7 +10,7 @@ const ReactPlayer = dynamic(() => import("react-player"), {
   loading: () => <p>Loading player...</p>,
 });
 const Video = ({ slice }) => {
-  console.log(slice)
+  
   return (
     <section
       data-slice-type={slice.slice_type}
