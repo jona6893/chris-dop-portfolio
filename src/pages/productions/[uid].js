@@ -25,21 +25,21 @@ const title = {
           {prismic.asText(settings.data.siteTitle)}
         </title>
       </Head>
-      <div className="grid gap-4 justify-items-center pt-4 pb-8 font-semibold">
+      <div className="grid gap-4 justify-items-center pt-4 pb-8 px-2 font-semibold">
         <PrismicRichText field={production.data.title} components={title} />
-        <div className="text-center">
-        <PrismicRichText field={production.data.year} components={title} />
-        <PrismicRichText field={production.data.type} components={title} />
+        <div className="text-center px-2">
+          <PrismicRichText field={production.data.year} components={title} />
+          <PrismicRichText field={production.data.type} components={title} />
         </div>
       </div>
       <div className="max-w-[1100px] mx-auto">
-      <SliceZone slices={production.data.slices} components={components} />
+        <SliceZone slices={production.data.slices} components={components} />
       </div>
-      <div className="flex gap-1 justify-center mt-10">
+      <div className="flex gap-1 justify-center mt-10 px-2">
         <p>Director:</p>
         <PrismicRichText field={production.data.director} components={title} />
       </div>
-      <div className="flex gap-1 justify-center mb-20">
+      <div className="flex gap-1 justify-center mb-20 px-2">
         <p>Producer:</p>
         <PrismicRichText field={production.data.producer} components={title} />
       </div>
