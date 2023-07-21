@@ -18,7 +18,7 @@
             "label": "Kategori",
             "placeholder": "",
             "allowTargetBlank": true,
-            "single": "paragraph"
+            "single": "heading3"
           }
         }
       },

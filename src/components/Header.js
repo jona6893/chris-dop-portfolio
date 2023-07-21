@@ -52,7 +52,7 @@ export function Header({ navigation, settings, bgwhite, bgblack, textwhite, text
                           ? `${textwhite}`
                           : `${textwhite}`
                       } ${
-                        path === item.link.url && "underline"
+                        path === item.link.url ? "underline":"duration-300 hover:opacity-70"
                       } underline-offset-8 decoration-1`}
                     >
                       <PrismicText field={item.label} />

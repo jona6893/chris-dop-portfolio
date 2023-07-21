@@ -662,13 +662,13 @@ interface ProjectGridSliceDefaultPrimary {
   /**
    * Kategori field in *ProjectGrid → Primary*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Title
    * - **Placeholder**: *None*
    * - **API ID Path**: project_grid.primary.kategori
    * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
    *
    */
-  kategori: prismic.RichTextField;
+  kategori: prismic.TitleField;
 }
 /**
  * Item in ProjectGrid → Items

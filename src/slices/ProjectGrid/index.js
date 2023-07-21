@@ -17,8 +17,8 @@ const titleText = {
   ),
 };
 const kategori = {
-  paragraph: ({ children }) => (
-    <p className="lg:absolute max-lg:text-center lg:text-right top-[-50%] right-[100%] lg:w-[13vw] break-normal lg:pr-2 max-lg:pb-2 text-size5 text-black col-start-1 row-start-1 z-[1] uppercase">
+  heading3: ({ children }) => (
+    <p className="lg:absolute max-lg:text-center lg:text-right top-[-30%] right-[100%] lg:w-[15vw] break-words lg:pr-2 max-lg:pb-2 text-size5 text-black col-start-1 row-start-1 z-[1] uppercase">
       {children}
     </p>
   ),
@@ -52,7 +52,7 @@ const overlayColorToClass = {
       data-slice-variation={slice.variation}
       className="lg:px-[15vw] max-lg:px-[2vw]"
     >
-      <div className="relative max-lg:flex flex-col-reverse  w-full py-2">
+      <div className="relative max-lg:flex flex-col-reverse  w-full md:py-3 max-md:py-3">
         <div className="bg-transparent w-full h-[1px] border-black border-dashed dashBorder" />
         <PrismicRichText field={slice.primary.kategori} components={kategori} />
       </div>
@@ -61,7 +61,7 @@ const overlayColorToClass = {
           return (
             <div
               key={index * 2}
-              className="relative w-full lg:pb-[25vh] max-lg:pb-[18vh] overflow-hidden m-auto"
+              className="relative w-full lg:h-[25vh] max-lg:h-[18vh] min-h-[10rem] overflow-hidden m-auto"
             >
               <article className="grid absolute inset-0 justify-items-center items-center">
                 <Image
@@ -90,24 +90,4 @@ const overlayColorToClass = {
 };
 
 export default ProjectGrid;
-/*   <section
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
-      className="grid grid-cols-2 grid-rows-[300px_minmax(900px,_1fr)_100px] justify-items-center items-center"
-    >
-      {slice.items.map((item, index) => {
-        return (
-          <article key={index * 2} className="grid">
-            <PrismicRichText field={item.title} components={titleText} />
-            <Image
-              src={item.image.url}
-              alt="image"
-              width={item.image.dimensions.width}
-              height={item.image.dimensions.height}
-              style={{ objectFit: "cover" }}
-              className="col-start-1 row-start-1 overflow-hidden"
-            />
-          </article>
-        );
-      })}
-    </section> */
+/*   lg:pb-[25vh] max-lg:pb-[18vh] */
