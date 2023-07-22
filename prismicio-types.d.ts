@@ -389,6 +389,32 @@ interface HeroSliceDefaultPrimary {
   backgroundImage: prismic.ImageField<never>;
 }
 /**
+ * Item in Hero → Items
+ *
+ */
+export interface HeroSliceDefaultItem {
+  /**
+   * Icon field in *Hero → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.items[].icon
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  icon: prismic.ImageField<never>;
+  /**
+   * IconLink field in *Hero → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.items[].iconlink
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  iconlink: prismic.LinkField;
+}
+/**
  * Default variation for Hero Slice
  *
  * - **API ID**: `default`
@@ -399,7 +425,7 @@ interface HeroSliceDefaultPrimary {
 export type HeroSliceDefault = prismic.SharedSliceVariation<
   "default",
   Simplify<HeroSliceDefaultPrimary>,
-  never
+  Simplify<HeroSliceDefaultItem>
 >;
 /**
  * Slice variation for *Hero*
@@ -1086,6 +1112,7 @@ declare module "@prismicio/client" {
       Call2ActionSliceVariation,
       Call2ActionSlice,
       HeroSliceDefaultPrimary,
+      HeroSliceDefaultItem,
       HeroSliceDefault,
       HeroSliceVariation,
       HeroSlice,

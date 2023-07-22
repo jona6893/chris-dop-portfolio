@@ -5,9 +5,11 @@ import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import { Layout } from "@/components/Layout";
 import { PrismicRichText } from "@/components/PrismicRichText";
+import { useStickyState } from "@/slices/ProjectGrid/Sticky";
 
 function Production({ navigation, settings, production }) {
  
+
 const title = {
   heading2: ({ children }) => (
     <h2 className="text-2xl text-black">{children}</h2>
@@ -33,7 +35,10 @@ const title = {
         </div>
       </div>
       <div className="max-w-[1100px] mx-auto">
-        <SliceZone slices={production.data.slices} components={components} />
+        <SliceZone
+          slices={production.data.slices}
+          components={components}
+        />
       </div>
       <div className="flex gap-1 justify-center mt-10 px-2">
         <p>Director:</p>

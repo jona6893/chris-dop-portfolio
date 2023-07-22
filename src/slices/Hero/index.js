@@ -22,6 +22,8 @@ const components = {
 const Hero = ({ slice }) => {
   const backgroundImage = slice.primary.backgroundImage;
 
+  console.log(slice)
+
   return (
     <section className="relative bg-slate-900 text-white h-screen grid items-end ">
       {prismic.isFilled.image(backgroundImage) && (
@@ -32,7 +34,7 @@ const Hero = ({ slice }) => {
           className="pointer-events-none select-none object-cover opacity-60"
         />
       )}
-      <div className="relative mb-[15vh]">
+      <div className="relative mb-[8vh]">
         <div className="flex flex-col flex-col-reverse items-center justify-items-center gap-8">
           <div className="max-w-2xl text-center">
             <PrismicRichText
@@ -40,15 +42,21 @@ const Hero = ({ slice }) => {
               components={components}
             />
           </div>
-          <div className="">
-            {prismic.isFilled.link(slice.primary.buttonLink) && (
+          <div className="flex gap-4 items-center">
+            {slice.items.map((item) => (
+              <>
+                <PrismicNextLink field={item.iconlink}>
+                <PrismicNextImage field={item.icon} className="invert w-8" /></PrismicNextLink>
+              </>
+            ))}
+            {/*  {prismic.isFilled.link(slice.primary.buttonLink) && (
               <PrismicNextLink
                 field={slice.primary.buttonLink}
                 className="rounded-lg backdrop-blur-md duration-200 px-6 py-1 font-bold text-size5 border-2 font-zen text-white hover:border-yellow-500 hover:text-black hover:bg-yellow-500"
               >
                 {slice.primary.buttonText || "IMDB"}
               </PrismicNextLink>
-            )}
+            )} */}
           </div>
         </div>
       </div>
