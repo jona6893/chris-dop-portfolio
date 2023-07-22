@@ -36,7 +36,7 @@ export function HeaderMobile({ navigation, settings, bgwhite, bgblack, textwhite
             href="/"
             className={`text-size1 duration-100 ${
               toggleMenu === true ? `${textblack}` : `${textwhite}`
-            } font-normal font-infant tracking-wide gap-2 items-center`}
+            } font-normal font-sans tracking-wide gap-2 items-center`}
           >
             <PrismicText field={settings.data.siteTitle} />
             <PrismicRichText

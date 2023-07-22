@@ -23,7 +23,7 @@ export function Header({ navigation, settings, bgwhite, bgblack, textwhite, text
       <div className=" top-0 py-6 grid justify-items-center mx-auto justify-between gap-x-6 gap-y-3 leading-none">
         <PrismicNextLink
           href="/"
-          className={`text-size1 ${textwhite} font-normal font-infant tracking-wide flex gap-2 items-center`}
+          className={`text-size1 ${textwhite} font-normal font-sans tracking-wide flex gap-2 items-center`}
         >
           <PrismicText field={settings.data.siteTitle} />
         </PrismicNextLink>
