@@ -2,6 +2,7 @@ import { PrismicRichText } from "@/components/PrismicRichText";
 import { PrismicNextImage } from "@prismicio/next";
 import ImageViewer from "react-simple-image-viewer";
 import { useState } from "react";
+import { nanoid } from "nanoid";
 
 /**
  * @typedef {import("@prismicio/client").Content.PhotoGridSlice} PhotoGridSlice
@@ -72,7 +73,7 @@ slice.items.forEach((e) =>{
         {slice.items.map((item, index) => (
           <div
             onClick={() => openImageViewer(index)}
-            key={index + 16}
+            key={nanoid()}
             className="grid items-center justify-items-center grid-cols-1 grid-rows-1 aspect-[10/16] relative cursor-pointer	"
           >
             <div
@@ -85,6 +86,7 @@ slice.items.forEach((e) =>{
             <PrismicNextImage
               field={item.image}
               /* width={"100%"} */
+              alt=""
               className="absolute inset-0 w-full h-full object-cover"
             />
           </div>

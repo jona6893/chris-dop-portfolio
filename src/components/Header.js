@@ -2,6 +2,7 @@ import * as prismic from "@prismicio/client";
 import { PrismicText } from "@prismicio/react";
 import { PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText } from "./PrismicRichText";
+import { nanoid } from "nanoid";
 
 export function Header({ navigation, settings, bgwhite, bgblack, textwhite, textblack, slug, path }) {
 
@@ -30,37 +31,41 @@ export function Header({ navigation, settings, bgwhite, bgblack, textwhite, text
         <PrismicRichText field={settings.data.subtitel} components={richtext} />
         <nav>
           <ul className="flex flex-wrap py-2">
-            {navigation.data?.links.map((item, index) => (
-              <>
-                {item.link.uid === "forside" ? null : (
-                  <li
-                    key={index*17}
-                    className={`font-normal duration-200 tracking-normal uppercase text-size5 text-center flex items-center`}
+            {navigation.data?.links.map((item, index) => {
+              if (item.link.uid === "forside") {
+                return null;
+              }
+
+              return (
+                <li
+                  key={index * 17}
+                  className={`font-normal duration-200 tracking-normal uppercase text-size5 text-center flex items-center`}
+                >
+                  {index === 0 ? null : (
+                    <hr
+                      className={`h-[35px] w-[1px] border-r ${
+                        path === "/" ? "border-gray-400" : "border-gray-500"
+                      } mx-4`}
+                    />
+                  )}
+                  <PrismicNextLink
+                    field={item.link}
+                    className={`${
+                      slug?.toLowerCase() ==
+                      prismic.asText(item.label).toLowerCase()
+                        ? `${textwhite}`
+                        : `${textwhite}`
+                    } ${
+                      path === item.link.url
+                        ? "underline"
+                        : "duration-300 hover:opacity-70"
+                    } underline-offset-8 decoration-1`}
                   >
-                    {index === 0 ? null : (
-                      <hr
-                        className={`h-[35px] w-[1px] border-r ${
-                          path === "/" ? "border-gray-400" : "border-gray-500"
-                        } mx-4`}
-                      />
-                    )}
-                    <PrismicNextLink
-                      field={item.link}
-                      className={`${
-                        slug?.toLowerCase() ==
-                        prismic.asText(item.label).toLowerCase()
-                          ? `${textwhite}`
-                          : `${textwhite}`
-                      } ${
-                        path === item.link.url ? "underline":"duration-300 hover:opacity-70"
-                      } underline-offset-8 decoration-1`}
-                    >
-                      <PrismicText field={item.label} />
-                    </PrismicNextLink>
-                  </li>
-                )}
-              </>
-            ))}
+                    <PrismicText field={item.label} />
+                  </PrismicNextLink>
+                </li>
+              );
+            })}
           </ul>
         </nav>
       </div>

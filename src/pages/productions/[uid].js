@@ -5,7 +5,7 @@ import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import { Layout } from "@/components/Layout";
 import { PrismicRichText } from "@/components/PrismicRichText";
-import { useStickyState } from "@/slices/ProjectGrid/Sticky";
+
 
 function Production({ navigation, settings, production }) {
  

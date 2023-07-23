@@ -2,7 +2,8 @@ import { PrismicRichText } from "@/components/PrismicRichText";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
-import { useStickyState } from "./Sticky";
+import { motion, useScroll } from "framer-motion";
+import { nanoid } from "nanoid";
 
 /**
  * @typedef {import("@prismicio/client").Content.ProjectGridSlice} ProjectGridSlice
@@ -12,10 +13,10 @@ import { useStickyState } from "./Sticky";
 
 
 const ProjectGrid = ({ slice }) => {
-
-const [isSticky, setIsSticky] = useState(false);
- const stickyRef = useRef(null);
-
+  
+  const [isSticky, setIsSticky] = useState(false);
+  const stickyRef = useRef(null);
+ 
 const titleText = {
   paragraph: ({ children }) => (
     <p className="text-size5 text-white col-start-1 row-start-1 z-[1] uppercase">
@@ -83,11 +84,12 @@ const titleText = {
         ref={stickyRef}
         className={`sticky bg-white z-[2] top-0 left-0 flex items-center w-full md:py-3 max-md:py-3`}
       >
+
         <div
           className={`duration-[400ms] ${
             isSticky ? "w-0" : "w-[100%]"
           } h-[1px] border-gray-400 border-t `}
-        />
+        /> 
         <PrismicRichText field={slice.primary.kategori} components={kategori} />
         <div
           className={`duration-[400ms] ${
@@ -99,7 +101,7 @@ const titleText = {
         {slice.items.map((item, index) => {
           return (
             <div
-              key={index * 2}
+              key={nanoid()}
               className="relative w-full lg:h-[25vh] max-lg:h-[18vh] min-h-[10rem] overflow-hidden m-auto"
             >
               <article className="grid absolute inset-0 justify-items-center items-center">

@@ -4,6 +4,7 @@ import { PrismicNextLink, PrismicNextImage } from "@prismicio/next";
 import { Bounded } from "@/components/Bounded";
 import { Heading } from "@/components/Heading";
 import { PrismicRichText } from "@/components/PrismicRichText";
+import { nanoid } from "nanoid";
 
 /** @type {import("@prismicio/react").PrismicRichTextProps['components']} */
 const components = {
@@ -21,8 +22,6 @@ const components = {
 
 const Hero = ({ slice }) => {
   const backgroundImage = slice.primary.backgroundImage;
-
-  console.log(slice)
 
   return (
     <section className="relative bg-slate-900 text-white h-screen grid items-end ">
@@ -44,19 +43,11 @@ const Hero = ({ slice }) => {
           </div>
           <div className="flex gap-4 items-center">
             {slice.items.map((item) => (
-              <>
+              <div key={nanoid()}>
                 <PrismicNextLink field={item.iconlink}>
-                <PrismicNextImage field={item.icon} className="invert w-8" /></PrismicNextLink>
-              </>
+                <PrismicNextImage field={item.icon} className="invert w-8" alt="" /></PrismicNextLink>
+              </div>
             ))}
-            {/*  {prismic.isFilled.link(slice.primary.buttonLink) && (
-              <PrismicNextLink
-                field={slice.primary.buttonLink}
-                className="rounded-lg backdrop-blur-md duration-200 px-6 py-1 font-bold text-size5 border-2 font-zen text-white hover:border-yellow-500 hover:text-black hover:bg-yellow-500"
-              >
-                {slice.primary.buttonText || "IMDB"}
-              </PrismicNextLink>
-            )} */}
           </div>
         </div>
       </div>

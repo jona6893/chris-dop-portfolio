@@ -14,7 +14,7 @@ const Image = ({ slice, index }) => {
     >
       {prismic.isFilled.image(image) && (
         <div className="bg-gray-100">
-          <PrismicNextImage field={image} sizes="100vw" className="w-full" />
+          <PrismicNextImage field={image} sizes="100vw" alt="" className="w-full" />
         </div>
       )}
     </section>
