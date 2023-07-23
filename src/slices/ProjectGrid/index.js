@@ -2,7 +2,6 @@ import { PrismicRichText } from "@/components/PrismicRichText";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
-import { motion, useScroll } from "framer-motion";
 import { nanoid } from "nanoid";
 
 /**
@@ -12,26 +11,30 @@ import { nanoid } from "nanoid";
  */
 
 
+
+
 const ProjectGrid = ({ slice }) => {
-  
   const [isSticky, setIsSticky] = useState(false);
   const stickyRef = useRef(null);
- 
-const titleText = {
-  paragraph: ({ children }) => (
-    <p className="text-size5 text-white col-start-1 row-start-1 z-[1] uppercase">
+
+
+  const titleText = {
+    paragraph: ({ children }) => (
+      <p className="text-size5 text-white col-start-1 row-start-1 z-[1] uppercase">
         {children}
       </p>
     ),
   };
   const kategori = {
     heading3: ({ children }) => (
-      <p className={`text-center w-fit whitespace-nowrap duration-[400ms] p-4 font-normal text-size4 text-black col-start-1 row-start-1 z-[1] uppercase`}>
+      <p
+        className={`text-center w-fit whitespace-nowrap duration-[400ms] p-4 font-normal text-size4 text-black col-start-1 row-start-1 z-[1] uppercase`}
+      >
         {children}
       </p>
     ),
   };
-  
+
   const overlayColorToClass = {
     Red: "hover:bg-red-600/40",
     Orange: "hover:bg-orange-600/40",
@@ -52,7 +55,9 @@ const titleText = {
     Rose: "hover:bg-rose-600/40",
     // add other mappings as necessary
   };
-  
+
+
+
   useEffect(() => {
     const handleScroll = () => {
       const element = stickyRef.current;
@@ -61,8 +66,9 @@ const titleText = {
         const elementPosition = element.getBoundingClientRect().top;
         setIsSticky(elementPosition <= 10);
       }
-    };
-
+    }; 
+     
+    
     // Add event listener to track scrolling
     window.addEventListener("scroll", handleScroll);
 
@@ -72,8 +78,6 @@ const titleText = {
     };
   }, []);
 
-
-  
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -81,20 +85,19 @@ const titleText = {
       className="relative lg:px-[15vw] max-lg:px-[2vw]"
     >
       <div
+        id={nanoid()}
         ref={stickyRef}
         className={`sticky bg-white z-[2] top-0 left-0 flex items-center w-full md:py-3 max-md:py-3`}
       >
+         <div
+          className={`duration-300 ${isSticky ? "w-0" : "w-[100%]"} 
+           h-[1px] border-gray-400 border-t `}
+        />
 
-        <div
-          className={`duration-[400ms] ${
-            isSticky ? "w-0" : "w-[100%]"
-          } h-[1px] border-gray-400 border-t `}
-        /> 
         <PrismicRichText field={slice.primary.kategori} components={kategori} />
         <div
-          className={`duration-[400ms] ${
-            isSticky ? "w-0" : "w-[100%]"
-          } h-[1px] border-gray-400 border-t `}
+          className={`duration-300 ${isSticky ? "w-0" : "w-[100%]"}
+           h-[1px] border-gray-400 border-t `}
         />
       </div>
       <div className="lg:grid max-lg:flex flex-col grid-cols-2 gap-4 justify-items-center items-center">
