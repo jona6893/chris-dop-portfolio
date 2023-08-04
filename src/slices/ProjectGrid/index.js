@@ -16,7 +16,8 @@ import { nanoid } from "nanoid";
 const ProjectGrid = ({ slice }) => {
   const [isSticky, setIsSticky] = useState(false);
   const stickyRef = useRef(null);
-
+  const [width, setWidth] = useState(100);
+  const [stickyStartPos, setStickyStartPos] = useState(null);
 
   const titleText = {
     paragraph: ({ children }) => (
@@ -56,19 +57,28 @@ const ProjectGrid = ({ slice }) => {
     // add other mappings as necessary
   };
 
-
-
   useEffect(() => {
     const handleScroll = () => {
       const element = stickyRef.current;
 
-      if (element) {
+      if (element && !isSticky) {
         const elementPosition = element.getBoundingClientRect().top;
-        setIsSticky(elementPosition <= 10);
+
+        if (elementPosition <= 10) {
+          setIsSticky(true);
+          setStickyStartPos(window.scrollY);
+        }
+      } else {
+        const scrolledSinceSticky = window.scrollY - stickyStartPos;
+
+        // Calculate width percentage based on scrolled amount, over 100px
+        const decrementFactor = scrolledSinceSticky / 100; // This will give us a value between 0 and 1
+        const newWidth = Math.max(100 - decrementFactor * 100, 0);
+
+        setWidth(newWidth);
       }
-    }; 
-     
-    
+    };
+
     // Add event listener to track scrolling
     window.addEventListener("scroll", handleScroll);
 
@@ -76,8 +86,10 @@ const ProjectGrid = ({ slice }) => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [isSticky, stickyStartPos]); // Add dependencies here
 
+  console.log(width);
+  console.log(isSticky);
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -89,14 +101,16 @@ const ProjectGrid = ({ slice }) => {
         ref={stickyRef}
         className={`sticky bg-white z-[2] top-0 left-0 flex items-center w-full md:py-3 max-md:py-3`}
       >
-         <div
-          className={`duration-300 ${isSticky ? "w-0" : "w-[100%]"} 
+        <div
+          style={{ width: `${width}%` }}
+          className={`duration-300
            h-[1px] border-gray-400 border-t `}
         />
 
         <PrismicRichText field={slice.primary.kategori} components={kategori} />
         <div
-          className={`duration-300 ${isSticky ? "w-0" : "w-[100%]"}
+          style={{ width: `${width}%` }}
+          className={`duration-300
            h-[1px] border-gray-400 border-t `}
         />
       </div>
