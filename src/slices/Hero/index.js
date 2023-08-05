@@ -43,6 +43,7 @@ console.log(slice)
             width="100%"
             height="100%"
             playing
+            playsinline
             loop
             muted
             volume={0}
