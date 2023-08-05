@@ -35,7 +35,6 @@ export function Layout({navigation, settings, children, }) {
     };
   }
 
-console.log(navigation);
   return (
     <div className="text-slate-800">
       <Head>

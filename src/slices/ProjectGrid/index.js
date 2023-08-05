@@ -94,7 +94,8 @@ const ProjectGrid = ({ slice }) => {
         window.removeEventListener("scroll", handleScroll);
       };
     }, [isSticky]);
-
+    
+console.log(slice);
 
   return (
     <section
@@ -133,7 +134,7 @@ const ProjectGrid = ({ slice }) => {
                   alt="image"
                   layout="fill"
                   objectFit="cover"
-                  loading="eager"
+                  priority
                 />
                 <Link
                   href={`productions/` + item.link.uid}
