@@ -1,7 +1,7 @@
 import { PrismicRichText } from "@/components/PrismicRichText";
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { nanoid } from "nanoid";
 import { useSpring, animated } from '@react-spring/web'
 /**
@@ -155,6 +155,6 @@ console.log(slice);
   );
 };
 
-export default ProjectGrid;
+export default React.memo(ProjectGrid);
 
 
