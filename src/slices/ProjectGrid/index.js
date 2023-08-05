@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
 import { nanoid } from "nanoid";
-import { useSpring, animated } from '@react-spring/web'
+/* import { useSpring, animated } from '@react-spring/web' */
 /**
  * @typedef {import("@prismicio/client").Content.ProjectGridSlice} ProjectGridSlice
  * @typedef {import("@prismicio/react").SliceComponentProps<ProjectGridSlice>} ProjectGridProps
