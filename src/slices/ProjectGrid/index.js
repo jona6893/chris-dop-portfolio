@@ -133,6 +133,7 @@ const ProjectGrid = ({ slice }) => {
                   alt="image"
                   layout="fill"
                   objectFit="cover"
+                  loading="eager"
                 />
                 <Link
                   href={`productions/` + item.link.uid}
