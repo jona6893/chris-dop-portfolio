@@ -428,10 +428,95 @@ export type HeroSliceDefault = prismic.SharedSliceVariation<
   Simplify<HeroSliceDefaultItem>
 >;
 /**
+ * Primary content in Hero → Primary
+ *
+ */
+interface HeroSliceHeroWithVideoPrimary {
+  /**
+   * Button Link field in *Hero → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.buttonLink
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  buttonLink: prismic.LinkField;
+  /**
+   * Button Text field in *Hero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.buttonText
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  buttonText: prismic.KeyTextField;
+  /**
+   * Text field in *Hero → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text: prismic.RichTextField;
+  /**
+   * VideoURL field in *Hero → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: Url to vimeo URL
+   * - **API ID Path**: hero.primary.videourl
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  videourl: prismic.LinkField;
+}
+/**
+ * Item in Hero → Items
+ *
+ */
+export interface HeroSliceHeroWithVideoItem {
+  /**
+   * Icon field in *Hero → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.items[].icon
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  icon: prismic.ImageField<never>;
+  /**
+   * IconLink field in *Hero → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.items[].iconlink
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  iconlink: prismic.LinkField;
+}
+/**
+ * Hero With Video variation for Hero Slice
+ *
+ * - **API ID**: `heroWithVideo`
+ * - **Description**: `Hero`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type HeroSliceHeroWithVideo = prismic.SharedSliceVariation<
+  "heroWithVideo",
+  Simplify<HeroSliceHeroWithVideoPrimary>,
+  Simplify<HeroSliceHeroWithVideoItem>
+>;
+/**
  * Slice variation for *Hero*
  *
  */
-type HeroSliceVariation = HeroSliceDefault;
+type HeroSliceVariation = HeroSliceDefault | HeroSliceHeroWithVideo;
 /**
  * Hero Shared Slice
  *
@@ -1114,6 +1199,9 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceDefaultItem,
       HeroSliceDefault,
+      HeroSliceHeroWithVideoPrimary,
+      HeroSliceHeroWithVideoItem,
+      HeroSliceHeroWithVideo,
       HeroSliceVariation,
       HeroSlice,
       ImageSliceDefaultPrimary,

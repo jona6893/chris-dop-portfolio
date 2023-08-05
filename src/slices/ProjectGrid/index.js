@@ -78,7 +78,7 @@ const ProjectGrid = ({ slice }) => {
 
           if (isSticky) {
             const newWidth = Math.max(
-              100 - ((window.scrollY - stickyStartPos) / 100) * 100,
+              50 - ((window.scrollY - stickyStartPos) / 100) * 50,
               0
             );
             setSpringProps({ width: `${newWidth}%` });
@@ -95,8 +95,7 @@ const ProjectGrid = ({ slice }) => {
       };
     }, [isSticky]);
 
-  console.log(springProps);
-  console.log(isSticky);
+
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -110,14 +109,14 @@ const ProjectGrid = ({ slice }) => {
       >
         <animated.div
           style={springProps}
-          className={`duration-100
+          className={`duration-75
            h-[1px] border-gray-400 border-t `}
         />
 
         <PrismicRichText field={slice.primary.kategori} components={kategori} />
         <animated.div
           style={springProps}
-          className={`duration-100
+          className={`duration-75
            h-[1px] border-gray-400 border-t `}
         />
       </div>

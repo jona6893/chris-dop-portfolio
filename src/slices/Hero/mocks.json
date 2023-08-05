@@ -57,7 +57,6 @@
 					[
 						"icon",
 						{
-							"__TYPE__": "ImageContent",
 							"origin": {
 								"id": "main",
 								"url": "https://images.unsplash.com/photo-1571126770897-2d612d1f7b89",
@@ -75,6 +74,9 @@
 								},
 								"background": "transparent"
 							},
+							"credits": null,
+							"alt": null,
+							"__TYPE__": "ImageContent",
 							"thumbnails": {}
 						}
 					],
@@ -85,6 +87,83 @@
 							"value": {
 								"__TYPE__": "ExternalLink",
 								"url": "https://prismic.io"
+							}
+						}
+					]
+				]
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "heroWithVideo",
+		"primary": {
+			"buttonLink": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://google.com"
+				}
+			},
+			"buttonText": {
+				"__TYPE__": "FieldContent",
+				"value": "southern",
+				"type": "Text"
+			},
+			"text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Id irure Lorem pariatur officia qui. Sint nulla elit commodo exercitation qui nostrud et."
+						}
+					}
+				]
+			},
+			"videourl": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io"
+				}
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"icon",
+						{
+							"__TYPE__": "ImageContent",
+							"origin": {
+								"id": "main",
+								"url": "https://images.unsplash.com/photo-1589652717521-10c0d092dea9",
+								"width": 4752,
+								"height": 3168
+							},
+							"url": "https://images.unsplash.com/photo-1589652717521-10c0d092dea9",
+							"width": 4752,
+							"height": 3168,
+							"edit": {
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								},
+								"background": "transparent"
+							},
+							"thumbnails": {}
+						}
+					],
+					[
+						"iconlink",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"__TYPE__": "ExternalLink",
+								"url": "https://slicemachine.dev"
 							}
 						}
 					]

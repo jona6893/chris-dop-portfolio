@@ -1,10 +1,11 @@
 import * as prismic from "@prismicio/client";
 import { PrismicNextLink, PrismicNextImage } from "@prismicio/next";
-
 import { Bounded } from "@/components/Bounded";
 import { Heading } from "@/components/Heading";
 import { PrismicRichText } from "@/components/PrismicRichText";
 import { nanoid } from "nanoid";
+import dynamic from "next/dynamic";
+
 
 /** @type {import("@prismicio/react").PrismicRichTextProps['components']} */
 const components = {
@@ -20,11 +21,34 @@ const components = {
   ),
 };
 
+const ReactPlayer = dynamic(() => import("react-player"), {
+  ssr: false,
+  loading: () => <p>Loading player...</p>,
+});
 const Hero = ({ slice }) => {
+
+
+  
+console.log(slice)
   const backgroundImage = slice.primary.backgroundImage;
 
+
   return (
-    <section className="relative bg-slate-900 text-white h-screen grid items-end ">
+    <section className="relative bgblack text-white h-screen grid items-end ">
+      {slice.variation === "heroWithVideo" && (
+        <div className="player-wrapper">
+          <ReactPlayer
+            url={slice?.primary?.videourl?.url}
+            className="plyr absolute top-0 left-0 pointer-events-none select-none opacity-60"
+            width="100%"
+            height="100%"
+            playing
+            loop
+            muted
+            volume={0}
+          />
+        </div>
+      )}
       {prismic.isFilled.image(backgroundImage) && (
         <PrismicNextImage
           field={backgroundImage}
@@ -33,7 +57,8 @@ const Hero = ({ slice }) => {
           className="pointer-events-none select-none object-cover opacity-60"
         />
       )}
-      <div className="relative mb-[8vh]">
+
+      <div className="absolute bottom-0 mb-[8vh] w-full">
         <div className="flex flex-col flex-col-reverse items-center justify-items-center gap-8">
           <div className="max-w-2xl text-center">
             <PrismicRichText
@@ -45,7 +70,12 @@ const Hero = ({ slice }) => {
             {slice.items.map((item) => (
               <div key={nanoid()}>
                 <PrismicNextLink field={item.iconlink}>
-                <PrismicNextImage field={item.icon} className="invert w-8" alt="" /></PrismicNextLink>
+                  <PrismicNextImage
+                    field={item.icon}
+                    className="invert w-8"
+                    alt=""
+                  />
+                </PrismicNextLink>
               </div>
             ))}
           </div>
