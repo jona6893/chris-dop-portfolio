@@ -3,7 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
 import { nanoid } from "nanoid";
-/* import { useSpring, animated } from '@react-spring/web' */
+import { useSpring, animated } from '@react-spring/web'
+import { PrismicNextImage } from "@prismicio/next";
 /**
  * @typedef {import("@prismicio/client").Content.ProjectGridSlice} ProjectGridSlice
  * @typedef {import("@prismicio/react").SliceComponentProps<ProjectGridSlice>} ProjectGridProps
@@ -14,20 +15,15 @@ import { nanoid } from "nanoid";
 
 
 const ProjectGrid = ({ slice }) => {
- /* const [isSticky, setIsSticky] = useState(false);
+ const [isSticky, setIsSticky] = useState(false);
  const stickyRef = useRef(null);
  const [stickyStartPos, setStickyStartPos] = useState(null);
 
  const [springProps, setSpringProps] = useSpring(() => ({
    width: "100%",
  }));
- */
-  const [isSticky, setIsSticky] = useState(false);
-  const stickyRef = useRef(null);
-  const [width, setWidth] = useState(100);
-  const [stickyStartPos, setStickyStartPos] = useState(null);
-  const titleText = {
 
+  const titleText = {
     paragraph: ({ children }) => (
       <p className="text-size5 text-white col-start-1 row-start-1 z-[1] uppercase">
         {children}
@@ -67,7 +63,7 @@ const ProjectGrid = ({ slice }) => {
 
 
   
-   /*  useEffect(() => {
+    useEffect(() => {
       const handleScroll = () => {
         const element = stickyRef.current;
 
@@ -98,39 +94,9 @@ const ProjectGrid = ({ slice }) => {
       return () => {
         window.removeEventListener("scroll", handleScroll);
       };
-    }, [isSticky]); */
+    }, [isSticky]);
     
-    useEffect(() => {
-      const handleScroll = () => {
-        const element = stickyRef.current;
-
-        if (element && !isSticky) {
-          const elementPosition = element.getBoundingClientRect().top;
-
-          if (elementPosition <= 10) {
-            setIsSticky(true);
-            setStickyStartPos(window.scrollY);
-          }
-        } else {
-          const scrolledSinceSticky = window.scrollY - stickyStartPos;
-
-          // Calculate width percentage based on scrolled amount, over 100px
-          const decrementFactor = scrolledSinceSticky / 100; // This will give us a value between 0 and 1
-          const newWidth = Math.max(100 - decrementFactor * 100, 0);
-
-          setWidth(newWidth);
-        }
-      };
-
-      // Add event listener to track scrolling
-      window.addEventListener("scroll", handleScroll);
-
-      // Clean up the event listener when component unmounts
-      return () => {
-        window.removeEventListener("scroll", handleScroll);
-      };
-    }, [isSticky, stickyStartPos]);
-console.log(width);
+console.log(slice);
 
   return (
     <section
@@ -143,16 +109,16 @@ console.log(width);
         ref={stickyRef}
         className={`sticky bg-white z-[2] top-0 left-0 flex items-center w-full md:py-3 max-md:py-3`}
       >
-        <div
-          style={{ width: `${width}%` }}
-          className={`
+        <animated.div
+          style={springProps}
+          className={`duration-75
            h-[1px] border-gray-300 border-t `}
         />
 
         <PrismicRichText field={slice.primary.kategori} components={kategori} />
-        <div
-          style={{ width: `${width}%` }}
-          className={`
+        <animated.div
+          style={springProps}
+          className={`duration-75
            h-[1px] border-gray-300 border-t `}
         />
       </div>
@@ -163,17 +129,17 @@ console.log(width);
               key={nanoid()}
               className="relative w-full lg:h-[25vh] max-lg:h-[18vh] min-h-[10rem] overflow-hidden m-auto"
             >
-              <article className="grid absolute inset-0 justify-items-center items-center">
-                <Image
-                  src={item.image.url}
-                  alt="image"
-                  layout="fill"
-                  objectFit="cover"
-                  priority
-                />
+              <article className="grid absolute inset-0 justify-items-center items-start">
+                <div className="col-start-1 row-start-1 w-full h-full relative overflow-hidden">
+                  <PrismicNextImage
+                    field={item.image}
+                    alt={""}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                </div>
                 <Link
                   href={`productions/` + item.link.uid}
-                  className={`w-full h-full z-[1] grid justify-items-center items-center bg-gray-800/25 duration-300 ${
+                  className={`w-full h-full z-[1] flex justify-center items-center bg-gray-800/25 duration-300 row-start-1 col-start-1 ${
                     item.overlay_color
                       ? overlayColorToClass[item.overlay_color]
                       : ""
