@@ -33,7 +33,7 @@ const Hero = ({ slice }) => {
 
 
   return (
-    <section className="relative bgblack text-white h-screen grid items-end ">
+    <section className="relative bgblack text-white fillScreen grid items-end ">
       {slice.variation === "heroWithVideo" && (
         <div className="player-wrapper">
           <ReactPlayer
