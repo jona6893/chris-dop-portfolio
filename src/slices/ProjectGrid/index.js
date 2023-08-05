@@ -14,15 +14,20 @@ import { useSpring, animated } from '@react-spring/web'
 
 
 const ProjectGrid = ({ slice }) => {
- const [isSticky, setIsSticky] = useState(false);
+ /* const [isSticky, setIsSticky] = useState(false);
  const stickyRef = useRef(null);
  const [stickyStartPos, setStickyStartPos] = useState(null);
 
  const [springProps, setSpringProps] = useSpring(() => ({
    width: "100%",
  }));
-
+ */
+  const [isSticky, setIsSticky] = useState(false);
+  const stickyRef = useRef(null);
+  const [width, setWidth] = useState(100);
+  const [stickyStartPos, setStickyStartPos] = useState(null);
   const titleText = {
+
     paragraph: ({ children }) => (
       <p className="text-size5 text-white col-start-1 row-start-1 z-[1] uppercase">
         {children}
@@ -62,7 +67,7 @@ const ProjectGrid = ({ slice }) => {
 
 
   
-    useEffect(() => {
+   /*  useEffect(() => {
       const handleScroll = () => {
         const element = stickyRef.current;
 
@@ -93,9 +98,39 @@ const ProjectGrid = ({ slice }) => {
       return () => {
         window.removeEventListener("scroll", handleScroll);
       };
-    }, [isSticky]);
+    }, [isSticky]); */
     
-console.log(slice);
+    useEffect(() => {
+      const handleScroll = () => {
+        const element = stickyRef.current;
+
+        if (element && !isSticky) {
+          const elementPosition = element.getBoundingClientRect().top;
+
+          if (elementPosition <= 10) {
+            setIsSticky(true);
+            setStickyStartPos(window.scrollY);
+          }
+        } else {
+          const scrolledSinceSticky = window.scrollY - stickyStartPos;
+
+          // Calculate width percentage based on scrolled amount, over 100px
+          const decrementFactor = scrolledSinceSticky / 100; // This will give us a value between 0 and 1
+          const newWidth = Math.max(100 - decrementFactor * 100, 0);
+
+          setWidth(newWidth);
+        }
+      };
+
+      // Add event listener to track scrolling
+      window.addEventListener("scroll", handleScroll);
+
+      // Clean up the event listener when component unmounts
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }, [isSticky, stickyStartPos]);
+console.log(width);
 
   return (
     <section
@@ -108,16 +143,16 @@ console.log(slice);
         ref={stickyRef}
         className={`sticky bg-white z-[2] top-0 left-0 flex items-center w-full md:py-3 max-md:py-3`}
       >
-        <animated.div
-          style={springProps}
-          className={`duration-75
+        <div
+          style={{ width: `${width}%` }}
+          className={`
            h-[1px] border-gray-300 border-t `}
         />
 
         <PrismicRichText field={slice.primary.kategori} components={kategori} />
-        <animated.div
-          style={springProps}
-          className={`duration-75
+        <div
+          style={{ width: `${width}%` }}
+          className={`
            h-[1px] border-gray-300 border-t `}
         />
       </div>
