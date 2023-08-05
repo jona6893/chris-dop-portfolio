@@ -1,0 +1,27 @@
+{
+  "id": "icon",
+  "type": "SharedSlice",
+  "name": "Icon",
+  "description": "Icon",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {
+        "icon": {
+          "type": "Image",
+          "config": { "label": "Icon", "constraint": {}, "thumbnails": [] }
+        },
+        "link": {
+          "type": "Link",
+          "config": { "label": "Link", "placeholder": "", "select": null }
+        }
+      }
+    }
+  ]
+}

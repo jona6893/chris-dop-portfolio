@@ -28,8 +28,7 @@ const ReactPlayer = dynamic(() => import("react-player"), {
 const Hero = ({ slice }) => {
 
 
-  
-console.log(slice)
+
   const backgroundImage = slice.primary.backgroundImage;
 
 

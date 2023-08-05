@@ -110,14 +110,14 @@ const ProjectGrid = ({ slice }) => {
         <animated.div
           style={springProps}
           className={`duration-75
-           h-[1px] border-gray-400 border-t `}
+           h-[1px] border-gray-300 border-t `}
         />
 
         <PrismicRichText field={slice.primary.kategori} components={kategori} />
         <animated.div
           style={springProps}
           className={`duration-75
-           h-[1px] border-gray-400 border-t `}
+           h-[1px] border-gray-300 border-t `}
         />
       </div>
       <div className="lg:grid max-lg:flex flex-col grid-cols-2 gap-4 justify-items-center items-center">

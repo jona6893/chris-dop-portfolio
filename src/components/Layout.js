@@ -2,8 +2,9 @@ import { useRouter } from "next/router";
 import { Header } from "./Header";
 import { HeaderMobile } from "./HeaderMobile";
 import Head from "next/head";
+import { createClient } from "@prismicio/client";
 
-export function Layout({ navigation, settings, children }) {
+export function Layout({navigation, settings, children, }) {
   const router = useRouter()
   const slug = router.query.uid;
   let headerProps = {}
@@ -34,8 +35,7 @@ export function Layout({ navigation, settings, children }) {
     };
   }
 
-
-
+console.log(navigation);
   return (
     <div className="text-slate-800">
       <Head>

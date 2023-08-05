@@ -18,6 +18,17 @@ interface NavigationDocumentData {
    *
    */
   links: prismic.GroupField<Simplify<NavigationDocumentDataLinksItem>>;
+  /**
+   * Slice Zone field in *Navigation*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+   *
+   */
+  slices: prismic.SliceZone<NavigationDocumentDataSlicesSlice>;
 }
 /**
  * Item in Navigation → Links
@@ -45,6 +56,11 @@ export interface NavigationDocumentDataLinksItem {
    */
   link: prismic.LinkField;
 }
+/**
+ * Slice for *Navigation → Slice Zone*
+ *
+ */
+type NavigationDocumentDataSlicesSlice = IconSlice;
 /**
  * Navigation document from Prismic
  *
@@ -526,6 +542,59 @@ type HeroSliceVariation = HeroSliceDefault | HeroSliceHeroWithVideo;
  *
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
+/**
+ * Item in Icon → Items
+ *
+ */
+export interface IconSliceDefaultItem {
+  /**
+   * Icon field in *Icon → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon.items[].icon
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  icon: prismic.ImageField<never>;
+  /**
+   * Link field in *Icon → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon.items[].link
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  link: prismic.LinkField;
+}
+/**
+ * Default variation for Icon Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type IconSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<IconSliceDefaultItem>
+>;
+/**
+ * Slice variation for *Icon*
+ *
+ */
+type IconSliceVariation = IconSliceDefault;
+/**
+ * Icon Shared Slice
+ *
+ * - **API ID**: `icon`
+ * - **Description**: `Icon`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type IconSlice = prismic.SharedSlice<"icon", IconSliceVariation>;
 /**
  * Primary content in Image → Primary
  *
@@ -1182,6 +1251,7 @@ declare module "@prismicio/client" {
     export type {
       NavigationDocumentData,
       NavigationDocumentDataLinksItem,
+      NavigationDocumentDataSlicesSlice,
       NavigationDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
@@ -1204,6 +1274,10 @@ declare module "@prismicio/client" {
       HeroSliceHeroWithVideo,
       HeroSliceVariation,
       HeroSlice,
+      IconSliceDefaultItem,
+      IconSliceDefault,
+      IconSliceVariation,
+      IconSlice,
       ImageSliceDefaultPrimary,
       ImageSliceDefault,
       ImageSliceBannerPrimary,

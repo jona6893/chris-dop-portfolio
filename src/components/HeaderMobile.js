@@ -1,17 +1,18 @@
 import * as prismic from "@prismicio/client";
 import { PrismicText } from "@prismicio/react";
 import { PrismicNextLink } from "@prismicio/next";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PrismicRichText } from "./PrismicRichText";
 import { motion, AnimatePresence } from "framer-motion";
-
+import Image from "next/image";
+import { nanoid } from "nanoid";
 export function HeaderMobile({ navigation, settings, bgwhite, bgblack, textwhite, textblack, slug, path }) {
   const [toggleMenu, setToggleMenu] = useState(false);
 
 
 
   const richtext = {
-    a: ({ children }) => <h1 className="text-5xl">{children}</h1>,
+    a: ({ children }) => <h1 className="">{children}</h1>,
     paragraph: ({ children }) => (
       <p
         className={`duration-100 ${
@@ -22,6 +23,14 @@ export function HeaderMobile({ navigation, settings, bgwhite, bgblack, textwhite
       </p>
     ),
   };
+  useEffect(() => {
+    if (toggleMenu) {
+      document.body.classList.add("disable-scroll");
+    } else {
+      document.body.classList.remove("disable-scroll");
+    }
+  }, [toggleMenu]);
+
 
   return (
     <header
@@ -34,9 +43,9 @@ export function HeaderMobile({ navigation, settings, bgwhite, bgblack, textwhite
           <PrismicNextLink
             onClick={() => setToggleMenu(false)}
             href="/"
-            className={`text-size1 duration-100 ${
+            className={`text-size2 duration-100 ${
               toggleMenu === true ? `${textblack}` : `${textwhite}`
-            } font-normal font-sans tracking-wide gap-2 items-center`}
+            } font-bold font-bodoni tracking-wide gap-2 items-center`}
           >
             <PrismicText field={settings.data.siteTitle} />
             <PrismicRichText
@@ -88,12 +97,12 @@ export function HeaderMobile({ navigation, settings, bgwhite, bgblack, textwhite
                 className={`flex flex-col gap-8 h-full relative items-center justify-center`}
               >
                 {navigation.data?.links.map((item, index) => (
-                  <>
-                    {item.link.uid === "forside" ? null : (
+              
                       <li
-                        key={index*18}
+                        key={nanoid()}
                         className={`font-normal duration-200 tracking-normal text-center flex flex-col items-center`}
                       >
+                    {item.link.uid === "forside" ? null : (
                         <PrismicNextLink
                           onClick={() => setToggleMenu(!toggleMenu)}
                           field={item.link}
@@ -108,10 +117,24 @@ export function HeaderMobile({ navigation, settings, bgwhite, bgblack, textwhite
                         >
                           <PrismicText field={item.label} />
                         </PrismicNextLink>
-                      </li>
                     )}
-                  </>
+                    </li>
+                
                 ))}
+                <div className="flex gap-4">
+                  {navigation.data?.slices[0]?.items.map((item) => (
+                    <div
+                      key={nanoid()}
+                    >
+                    <Image
+                      className={`${path === "/" ? "" : "invert"} w-8`}
+                      src={item.icon.url}
+                      width={item.icon.dimensions.width}
+                      height={item.icon.dimensions.height}
+                      alt=""
+                    /></div>
+                  ))}
+                </div>
               </motion.ul>
             </motion.nav>
           )}

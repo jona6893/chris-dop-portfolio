@@ -94,3 +94,9 @@ background-repeat: no-repeat;
   top: 0;
   left: 0;
 } 
+
+/** Disable Scroll when mobile menu is open */
+.disable-scroll {
+    overflow: hidden;
+    height: 100%; /* Optional based on your design */
+}
