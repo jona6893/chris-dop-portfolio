@@ -123,8 +123,9 @@ export function HeaderMobile({ navigation, settings, bgwhite, bgblack, textwhite
                 ))}
                 <div className="flex gap-4">
                   {navigation.data?.slices[0]?.items.map((item) => (
-                    <div
+                    <a
                       key={nanoid()}
+                      href={item.link.url}
                     >
                     <Image
                       className={`${path === "/" ? "" : "invert"} w-8`}
@@ -132,7 +133,7 @@ export function HeaderMobile({ navigation, settings, bgwhite, bgblack, textwhite
                       width={item.icon.dimensions.width}
                       height={item.icon.dimensions.height}
                       alt=""
-                    /></div>
+                    /></a>
                   ))}
                 </div>
               </motion.ul>
