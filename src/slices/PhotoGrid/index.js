@@ -3,6 +3,7 @@ import { PrismicNextImage } from "@prismicio/next";
 import ImageViewer from "react-simple-image-viewer";
 import { useState } from "react";
 import { nanoid } from "nanoid";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 /**
  * @typedef {import("@prismicio/client").Content.PhotoGridSlice} PhotoGridSlice
@@ -10,7 +11,7 @@ import { nanoid } from "nanoid";
  * @param {PhotoGridProps}
  */
 const PhotoGrid = ({ slice }) => {
-
+const [parent] = useAutoAnimate({ easing: "ease-in-out" });
 const [currentImage, setCurrentImage] = useState(0);
 const [isViewerOpen, setIsViewerOpen] = useState(false);
 
@@ -69,7 +70,10 @@ slice.items.forEach((e) =>{
       data-slice-variation={slice.variation}
       className="max-w-[1400px] mx-auto"
     >
-      <div className="grid gap-4 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 lg:px-[10vw] max-lg:px-[5vw] py-4 ">
+      <div
+        ref={parent}
+        className="grid gap-4 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 lg:px-[10vw] max-lg:px-[5vw] py-4 "
+      >
         {slice.items.map((item, index) => (
           <div
             onClick={() => openImageViewer(index)}

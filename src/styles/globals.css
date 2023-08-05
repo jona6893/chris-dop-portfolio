@@ -37,6 +37,10 @@ background-repeat: no-repeat;
   color: white;
 }
 
+.fillScreen{
+  height: 100vh;
+  height: -webkit-fill-available;
+}
 
 
 
