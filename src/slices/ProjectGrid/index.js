@@ -131,11 +131,16 @@ console.log(slice);
             >
               <article className="grid absolute inset-0 justify-items-center items-start">
                 <div className="col-start-1 row-start-1 w-full h-full relative overflow-hidden">
-                  <PrismicNextImage
+                  {/* <PrismicNextImage
                     field={item.image}
                     alt={""}
                     className="absolute inset-0 w-full h-full object-cover"
-                  />
+                  /> */}
+                   <img
+                    src={item.image.url}
+                    alt={""}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  /> 
                 </div>
                 <Link
                   href={`productions/` + item.link.uid}
