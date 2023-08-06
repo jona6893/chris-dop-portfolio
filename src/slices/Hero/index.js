@@ -21,7 +21,7 @@ const components = {
   ),
 };
 
-const ReactPlayer = dynamic(() => import("react-player"), {
+const ReactPlayer = dynamic(() => import("react-player/lazy"), {
   ssr: false,
   loading: () => <p>Loading player...</p>,
 });
