@@ -37,6 +37,7 @@ const Hero = ({ slice }) => {
       {slice.variation === "heroWithVideo" && (
         <div className="player-wrapper">
           <ReactPlayer
+            lazyLoad={true}
             url={slice?.primary?.videourl?.url}
             className="plyr absolute top-0 left-0 pointer-events-none select-none opacity-60"
             width="100%"
