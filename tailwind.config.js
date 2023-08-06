@@ -31,6 +31,9 @@ module.exports = {
       infant: "'Cormorant Infant', serif",
       zen: "'Zen Kaku Gothic New', sans-serif",
       bodoni: "'Libre Bodoni', 'serif'",
+      helvetica: "'Helvetica Neue', 'sans-serif'",
+      bebas: "'Bebas Neue', 'sans-serif'",
+      heavitas: "'Heavitas', 'sans-serif'",
     },
     fontSize: {
       size1: "clamp(2rem, 1.7993rem + 0.8451vw, 2.75rem)",

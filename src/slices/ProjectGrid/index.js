@@ -5,6 +5,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { nanoid } from "nanoid";
 import { useSpring, animated } from '@react-spring/web'
 import { PrismicNextImage } from "@prismicio/next";
+import { config } from "@react-spring/web";
 /**
  * @typedef {import("@prismicio/client").Content.ProjectGridSlice} ProjectGridSlice
  * @typedef {import("@prismicio/react").SliceComponentProps<ProjectGridSlice>} ProjectGridProps
@@ -22,6 +23,7 @@ const ProjectGrid = ({ slice }) => {
 
  const [springProps, setSpringProps] = useSpring(() => ({
    width: "100%",
+   config: config.gentle,
  }));
 
   const titleText = {
@@ -112,14 +114,14 @@ console.log(slice);
       >
         <animated.div
           style={springProps}
-          className={`duration-75
+          className={`duration-
            h-[1px] border-gray-300 border-t `}
         />
 
         <PrismicRichText field={slice.primary.kategori} components={kategori} />
         <animated.div
           style={springProps}
-          className={`duration-75
+          className={`duration-
            h-[1px] border-gray-300 border-t `}
         />
       </div>
