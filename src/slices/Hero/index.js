@@ -5,6 +5,7 @@ import { Heading } from "@/components/Heading";
 import { PrismicRichText } from "@/components/PrismicRichText";
 import { nanoid } from "nanoid";
 import dynamic from "next/dynamic";
+import { useState } from "react";
 
 
 /** @type {import("@prismicio/react").PrismicRichTextProps['components']} */
@@ -21,44 +22,52 @@ const components = {
   ),
 };
 
-const ReactPlayer = dynamic(() => import("react-player/lazy"), {
+const ReactPlayer = dynamic(() => import("react-player/vimeo"), {
   ssr: false,
   loading: () => <p>Loading player...</p>,
 });
 const Hero = ({ slice }) => {
-
-
-
+  // State to control when the video should load
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
   const backgroundImage = slice.primary.backgroundImage;
-
-
   return (
     <section className="relative bgblack text-white fillScreen grid items-end overflow-hidden">
-      {slice.variation === "heroWithVideo" && (
-        <div className="player-wrapper">
-          <ReactPlayer
-            lazyLoad={true}
-            url={slice?.primary?.videourl?.url}
-            className="plyr absolute top-0 left-0 pointer-events-none select-none opacity-60"
-            width="100%"
-            height="100%"
-            playing
-            playsinline
-            loop
-            muted
-            volume={0}
+      {slice.variation === "heroWithVideo" ? (
+        <>
+          {shouldLoadVideo ? (
+            <div className="player-wrapper">
+              <ReactPlayer
+                url={slice?.primary?.videourl?.url}
+                className="plyr absolute top-0 left-0 pointer-events-none select-none opacity-60"
+                width="100%"
+                height="100%"
+                playing
+                playsinline
+                loop
+                muted
+                volume={0}
+              />
+            </div>
+          ) : (
+            <PrismicNextImage
+              field={slice.primary.placeholder}
+              alt=""
+              fill={true}
+              className="pointer-events-none select-none object-cover opacity-60"
+              onLoad={() => setShouldLoadVideo(true)} // Once the image loads, load the video.
+            />
+          )}
+        </>
+      ) : (
+        prismic.isFilled.image(backgroundImage) && (
+          <PrismicNextImage
+            field={backgroundImage}
+            alt=""
+            fill={true}
+            className="pointer-events-none select-none object-cover opacity-60"
           />
-        </div>
+        )
       )}
-      {prismic.isFilled.image(backgroundImage) && (
-        <PrismicNextImage
-          field={backgroundImage}
-          alt=""
-          fill={true}
-          className="pointer-events-none select-none object-cover opacity-60"
-        />
-      )}
-
       <div className="absolute bottom-0 mb-[8vh] w-full">
         <div className="flex flex-col flex-col-reverse items-center justify-items-center gap-8">
           <div className="max-w-2xl text-center">
@@ -70,7 +79,10 @@ const Hero = ({ slice }) => {
           <div className="flex gap-4 items-center">
             {slice.items.map((item) => (
               <div key={nanoid()}>
-                <PrismicNextLink field={item.iconlink}>
+                <PrismicNextLink
+                  field={item.iconlink}
+                  aria-label="Social Media Link"
+                >
                   <PrismicNextImage
                     field={item.icon}
                     className="invert w-8"

@@ -62,7 +62,7 @@ slice.items.forEach((e) =>{
  };
 
  
-  
+  console.log(slice)
 
   return (
     <section
@@ -90,7 +90,7 @@ slice.items.forEach((e) =>{
             <PrismicNextImage
               field={item.image}
               /* width={"100%"} */
-              alt=""
+              
               className="absolute inset-0 w-full h-full object-cover"
             />
           </div>

@@ -89,6 +89,14 @@
             "allowTargetBlank": false,
             "select": null
           }
+        },
+        "placeholder": {
+          "type": "Image",
+          "config": {
+            "label": "Placeholder",
+            "constraint": {},
+            "thumbnails": []
+          }
         }
       },
       "items": {

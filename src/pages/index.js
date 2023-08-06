@@ -12,7 +12,10 @@ const Index = ({ page, navigation, settings}) => {
   return (
     <Layout navigation={navigation} settings={settings}>
       <Head>
-        <title>{prismic.asText(page.data.title)}</title>
+        <title>
+          {prismic.asText(page.data.title)} |{" "}
+          {prismic.asText(settings.data.siteTitle)}
+        </title>
       </Head>
       <SliceZone slices={page.data.slices} components={components} />
     </Layout>

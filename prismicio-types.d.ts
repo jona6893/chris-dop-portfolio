@@ -488,6 +488,16 @@ interface HeroSliceHeroWithVideoPrimary {
    *
    */
   videourl: prismic.LinkField;
+  /**
+   * Placeholder field in *Hero → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.placeholder
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  placeholder: prismic.ImageField<never>;
 }
 /**
  * Item in Hero → Items
