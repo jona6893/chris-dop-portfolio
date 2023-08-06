@@ -21,7 +21,6 @@ const components = {
     </p>
   ),
 };
-
 const ReactPlayer = dynamic(() => import("react-player/vimeo"), {
   ssr: false,
   loading: () => <p>Loading player...</p>,
