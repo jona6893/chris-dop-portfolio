@@ -27,12 +27,12 @@
 .textwhite{
   color: white;
 }
-
+@supports (-webkit-touch-callout: none) {
 .fillScreen{
   height: 100vh;
   height: -webkit-fill-available;
 }
-
+}
 
 
 

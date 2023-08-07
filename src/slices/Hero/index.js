@@ -30,7 +30,7 @@ const Hero = ({ slice }) => {
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
   const backgroundImage = slice.primary.backgroundImage;
 
-  setTimeout(()=> {
+/*   setTimeout(()=> {
     const playerWrapper = document.querySelector(".player-wrapper");
     const heroSection = document.querySelector(".heroSection");
     if (playerWrapper) {
@@ -62,12 +62,12 @@ useEffect(() => {
       window.removeEventListener("resize", handleResize);
     };
   }
-}, []);
+}, []); */
 
   
 
   return (
-    <section className="relative bgblack text-white h-screen grid items-end overflow-hidden heroSection">
+    <section className="relative bgblack text-white fillScreen grid items-end overflow-hidden heroSection">
       {slice.variation === "heroWithVideo" ? (
         <>
           {shouldLoadVideo ? (
