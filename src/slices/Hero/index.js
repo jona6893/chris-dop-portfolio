@@ -31,8 +31,11 @@ const Hero = ({ slice }) => {
   const backgroundImage = slice.primary.backgroundImage;
 
 useEffect(() => {
-  document.querySelector(".player-wrapper").style.height =
-    window.innerHeight + "px";
+ const playerWrapper = document.querySelector(".player-wrapper");
+ if (playerWrapper) {
+   playerWrapper.style.height = window.innerHeight + "px";
+ }
+ 
   if (typeof window !== "undefined") {
     const handleResize = () => {
       const playerWrapper = document.querySelector(".player-wrapper");
@@ -60,7 +63,7 @@ useEffect(() => {
       {slice.variation === "heroWithVideo" ? (
         <>
           {shouldLoadVideo ? (
-            <div className="player-wrapper">
+            <div className="player-wrapper h-screen w-screen">
               <ReactPlayer
                 url={slice?.primary?.videourl?.url}
                 className="plyr absolute top-0 left-0 pointer-events-none select-none opacity-60"
