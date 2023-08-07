@@ -30,39 +30,25 @@ const Hero = ({ slice }) => {
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
   const backgroundImage = slice.primary.backgroundImage;
 
-/*   setTimeout(()=> {
-    const playerWrapper = document.querySelector(".player-wrapper");
-    const heroSection = document.querySelector(".heroSection");
-    if (playerWrapper) {
-      playerWrapper.style.height = window.innerHeight + "px";
-       heroSection.style.height = window.innerHeight + "px";
-    }
-  },0)
-
-
-
-useEffect(() => {
-  if (typeof window !== "undefined") {
-    const handleResize = () => {
-      const playerWrapper = document.querySelector(".player-wrapper");
-      const heroSection = document.querySelector(".heroSection");
-      if (playerWrapper) {
-        playerWrapper.style.height = window.innerHeight + "px";
-        heroSection.style.height = window.innerHeight + "px";
+  useEffect(() => {
+    function handlePageShow(event) {
+      if (event.persisted) { // If the page is loaded from cache
+          let fillScreenElem = document.querySelector('.fillScreen');
+          if (fillScreenElem) { // Ensure the element exists
+              fillScreenElem.style.height = '';
+              fillScreenElem.offsetHeight; // trigger a reflow
+              fillScreenElem.style.height = '-webkit-fill-available';
+          }
       }
-    };
+    }
+    
+    window.addEventListener('pageshow', handlePageShow);
 
-    window.addEventListener("resize", handleResize);
-
-    // Handle initial setting (if required)
-    handleResize();
-
+    // Cleanup the event listener on unmount
     return () => {
-      // Cleanup
-      window.removeEventListener("resize", handleResize);
-    };
-  }
-}, []); */
+      window.removeEventListener('pageshow', handlePageShow);
+    }
+  }, []); // Empty dependency array ensures this runs once when component mounts and once when it unmounts
 
   
 
