@@ -5,7 +5,7 @@ import { Heading } from "@/components/Heading";
 import { PrismicRichText } from "@/components/PrismicRichText";
 import { nanoid } from "nanoid";
 import dynamic from "next/dynamic";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 /** @type {import("@prismicio/react").PrismicRichTextProps['components']} */
@@ -29,6 +29,17 @@ const Hero = ({ slice }) => {
   // State to control when the video should load
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
   const backgroundImage = slice.primary.backgroundImage;
+
+
+  setTimeout(() => {
+    const playerWrapper = document.querySelector(".player-wrapper");
+    if (playerWrapper) {
+      playerWrapper.style.height = window.innerHeight + "px";
+    }
+  }, 0);
+
+
+
   return (
     <section className="relative bgblack text-white fillScreen grid items-end overflow-hidden">
       {slice.variation === "heroWithVideo" ? (
