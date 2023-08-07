@@ -31,11 +31,8 @@ const Hero = ({ slice }) => {
   const backgroundImage = slice.primary.backgroundImage;
 
 useEffect(() => {
-  document.addEventListener("visibilitychange", function () {
-    if (document.visibilityState === "visible") {
-      // Recalculate styles or reset video position
-    }
-  });
+  document.querySelector(".player-wrapper").style.height =
+    window.innerHeight + "px";
   if (typeof window !== "undefined") {
     const handleResize = () => {
       const playerWrapper = document.querySelector(".player-wrapper");
