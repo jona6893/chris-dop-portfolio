@@ -30,19 +30,28 @@ const Hero = ({ slice }) => {
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
   const backgroundImage = slice.primary.backgroundImage;
 
+useEffect(() => {
+  if (typeof window !== "undefined") {
+    const handleResize = () => {
+      const playerWrapper = document.querySelector(".player-wrapper");
+      if (playerWrapper) {
+        playerWrapper.style.height = window.innerHeight + "px";
+      }
+    };
 
- /*  setTimeout(() => {
-    const playerWrapper = document.querySelector(".player-wrapper");
-    if (playerWrapper) {
-      playerWrapper.style.height = window.innerHeight + "px";
-    }
-  }, 0); */
-  setTimeout(() => {
-    window.addEventListener("resize", () => {
-      document.querySelector(".player-wrapper").style.height =
-        window.innerHeight + "px";
-    });
-  }, 0);
+    window.addEventListener("resize", handleResize);
+
+    // Handle initial setting (if required)
+    handleResize();
+
+    return () => {
+      // Cleanup
+      window.removeEventListener("resize", handleResize);
+    };
+  }
+}, []);
+
+  
 
   return (
     <section className="relative bgblack text-white fillScreen grid items-end overflow-hidden">
