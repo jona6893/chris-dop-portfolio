@@ -60,7 +60,7 @@
   left: 50%;
   width: 100vw !important;
   height: 56.25vw !important;
-   height: -webkit-fill-available; /* Given the 16:9 aspect ratio: 100 * 9 / 16 = 56.25 */
+  /* Given the 16:9 aspect ratio: 100 * 9 / 16 = 56.25 */
   min-height: 100vh;
   min-width: 177.77vh; /* Given the 16:9 aspect ratio: 100 * 16 / 9 = 177.77 */
   transform: translate(-50%, -50%);
