@@ -30,30 +30,11 @@ const Hero = ({ slice }) => {
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
   const backgroundImage = slice.primary.backgroundImage;
 
-  useEffect(() => {
-    function handlePageShow(event) {
-      if (event.persisted) { // If the page is loaded from cache
-          let fillScreenElem = document.querySelector('.fillScreen');
-          if (fillScreenElem) { // Ensure the element exists
-              fillScreenElem.style.height = '';
-              fillScreenElem.offsetHeight; // trigger a reflow
-              fillScreenElem.style.height = '-webkit-fill-available';
-          }
-      }
-    }
-    
-    window.addEventListener('pageshow', handlePageShow);
-
-    // Cleanup the event listener on unmount
-    return () => {
-      window.removeEventListener('pageshow', handlePageShow);
-    }
-  }, []); // Empty dependency array ensures this runs once when component mounts and once when it unmounts
 
   
 
   return (
-    <section className="relative bgblack text-white fillScreen grid items-end overflow-hidden heroSection">
+    <section className="relative bgblack text-white h-screen grid items-end overflow-hidden">
       {slice.variation === "heroWithVideo" ? (
         <>
           {shouldLoadVideo ? (
