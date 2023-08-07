@@ -31,14 +31,18 @@ const Hero = ({ slice }) => {
   const backgroundImage = slice.primary.backgroundImage;
 
 
-  setTimeout(() => {
+ /*  setTimeout(() => {
     const playerWrapper = document.querySelector(".player-wrapper");
     if (playerWrapper) {
       playerWrapper.style.height = window.innerHeight + "px";
     }
+  }, 0); */
+  setTimeout(() => {
+    window.addEventListener("resize", () => {
+      document.querySelector(".player-wrapper").style.height =
+        window.innerHeight + "px";
+    });
   }, 0);
-
-
 
   return (
     <section className="relative bgblack text-white fillScreen grid items-end overflow-hidden">
