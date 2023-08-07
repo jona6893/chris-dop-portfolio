@@ -31,11 +31,11 @@ const Hero = ({ slice }) => {
   const backgroundImage = slice.primary.backgroundImage;
 
 useEffect(() => {
- const playerWrapper = document.querySelector(".player-wrapper");
+ const playerWrapper = document.querySelector(".player-wrapper heroSection");
  if (playerWrapper) {
    playerWrapper.style.height = window.innerHeight + "px";
  }
- 
+
   if (typeof window !== "undefined") {
     const handleResize = () => {
       const playerWrapper = document.querySelector(".player-wrapper");
@@ -59,7 +59,7 @@ useEffect(() => {
   
 
   return (
-    <section className="relative bgblack text-white fillScreen grid items-end overflow-hidden">
+    <section className="relative bgblack text-white h-screen grid items-end overflow-hidden heroSection">
       {slice.variation === "heroWithVideo" ? (
         <>
           {shouldLoadVideo ? (
