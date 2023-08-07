@@ -30,17 +30,25 @@ const Hero = ({ slice }) => {
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
   const backgroundImage = slice.primary.backgroundImage;
 
-useEffect(() => {
- const playerWrapper = document.querySelector(".player-wrapper heroSection");
- if (playerWrapper) {
-   playerWrapper.style.height = window.innerHeight + "px";
- }
+  setTimeout(()=> {
+    const playerWrapper = document.querySelector(".player-wrapper");
+    const heroSection = document.querySelector(".heroSection");
+    if (playerWrapper) {
+      playerWrapper.style.height = window.innerHeight + "px";
+       heroSection.style.height = window.innerHeight + "px";
+    }
+  },0)
 
+
+
+useEffect(() => {
   if (typeof window !== "undefined") {
     const handleResize = () => {
       const playerWrapper = document.querySelector(".player-wrapper");
+      const heroSection = document.querySelector(".heroSection");
       if (playerWrapper) {
         playerWrapper.style.height = window.innerHeight + "px";
+        heroSection.style.height = window.innerHeight + "px";
       }
     };
 
