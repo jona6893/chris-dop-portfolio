@@ -7,18 +7,19 @@ import { nanoid } from "nanoid";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 
-
 /** @type {import("@prismicio/react").PrismicRichTextProps['components']} */
 const components = {
   heading1: ({ children }) => (
-    <Heading as="h2" size="xl" className="mb-4 mt-12 first:mt-0 last:mb-0 text-red-500">
+    <Heading
+      as="h2"
+      size="xl"
+      className="mb-4 mt-12 first:mt-0 last:mb-0 text-red-500"
+    >
       {children}
     </Heading>
   ),
   paragraph: ({ children }) => (
-    <p className="mb-4 mt-12 first:mt-0 max-lg:px-4">
-      {children}
-    </p>
+    <p className="mb-4 mt-12 first:mt-0 max-lg:px-4">{children}</p>
   ),
 };
 const ReactPlayer = dynamic(() => import("react-player/vimeo"), {
@@ -29,9 +30,6 @@ const Hero = ({ slice }) => {
   // State to control when the video should load
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
   const backgroundImage = slice.primary.backgroundImage;
-
-
-  
 
   return (
     <section className="relative bgblack text-white h-screen grid items-end overflow-hidden">
